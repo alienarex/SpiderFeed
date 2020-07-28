@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 public class SpiderController : MonoBehaviour
 {
 
     public float _speed;
     private Animator animator;
     private Transform enemy;
+    public AudioSource audioSource;
+    private CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         _speed = 100;
     }
@@ -20,7 +24,7 @@ public class SpiderController : MonoBehaviour
 
     void Update()
     {
-        CharacterController controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
@@ -56,11 +60,28 @@ public class SpiderController : MonoBehaviour
     /// <param name="collideObject"></param>
     void OnTriggerEnter(Collider collideObject)
     {
+
         if (collideObject.gameObject.tag == "Human")
         {
-            //animator.SetTrigger("attack");
+            StopCoroutine("ReenableMovement");
+            animator.gameObject.transform.position = Vector3.zero;
+            animator.SetBool("walking", false);
+            audioSource.Play();
+            animator.SetTrigger("attack");
             collideObject.gameObject.SetActive(false);
+            StartCoroutine("ReenableMovement");
         }
+    }
+
+
+    private IEnumerator ReenableMovement()
+    {
+        walking = true;
+        yield return new WaitForSeconds(10);
+        //rb.isKinematic = false;
+        controller.Move(moveDirection * Time.deltaTime);
+
+        //isRunning = false;
     }
     #region old code
     //// Update is called once per frame
@@ -85,5 +106,5 @@ public class SpiderController : MonoBehaviour
     //    //Vector3 movement = new Vector3(moveH, 0.0f, moveV);
     //    //body.AddForce(movement * _speed * Time.deltaTime);
     //}
-    #endregion 
+    #endregion
 }

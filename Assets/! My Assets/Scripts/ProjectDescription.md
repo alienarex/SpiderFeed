@@ -35,3 +35,9 @@ Markera mesh i folderstrukturen. I inspektor, klicka "Rig". Ange avataren som "h
 För att kameran ska följa Player. 
 
 Player=> spider => CameraParent => Main Camera
+
+Ljud: 
+Importera ljudfiler => assigna "audio source" till gameObject.
+Fonter: 
+Importera assets från Unity: Honeti- l18N
+Countdown klockan har: ~BOWLBYONESC-REGULAR.TTF~

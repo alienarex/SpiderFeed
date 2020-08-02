@@ -66,8 +66,17 @@
     <Compile Include="Assets\! My Assets\Scripts\AIController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\CameraCollision.cs" />
     <Compile Include="Assets\! My Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\GameEngine.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpawnNewHumans.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpiderController.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18N.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18NAudioSource.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18NImage.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18NSprite.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18NText.cs" />
+    <Compile Include="Assets\Honeti\I18N\Scripts\I18NTextMesh.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -76,11 +85,11 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-    <None Include="Assets\Fantasy Forest Set\Sources\Shaders\StandardSpecular_2Sided.shader" />
+    <None Include="Assets\! My Assets\Fantasy Forest Set\Sources\Shaders\StandardSpecular_2Sided.shader" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
-    <None Include="Assets\Fantasy Forest Set\Sources\Shaders\Grid.shader" />
+    <None Include="Assets\! My Assets\Fantasy Forest Set\Sources\Shaders\Grid.shader" />
     <None Include="Assets\! My Assets\PB_Spider\readme.txt" />
-    <None Include="Assets\Fantasy Forest Set\Sources\Shaders\Vegitation.shader" />
+    <None Include="Assets\! My Assets\Fantasy Forest Set\Sources\Shaders\Vegitation.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
             float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-            if (Input.GetButton("Jump") && canMove)
+            if (/*Input.GetButton("Jump") &&*/ canMove)
             {
                 moveDirection.y = jumpSpeed;
             }

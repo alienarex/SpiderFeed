@@ -6,6 +6,7 @@ public class SpawnNewHumans : MonoBehaviour
     public GameObject femaleHuman;
     public GameObject maleHuman;
     private GameObject randomizedHuman;
+    private Human human;
     private int isFemale;
 
     // Start is called before the first frame update

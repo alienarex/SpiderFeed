@@ -20,7 +20,7 @@ public class CameraCollision : MonoBehaviour
     }
 
     // LateUpdate because the camera does't need to be rended in every frame.
-    void LateUpdate()
+    void Update()
     {
         Vector3 currentPos = defaultPos;
         RaycastHit hit;

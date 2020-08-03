@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static Assets.__My_Assets.Scripts.CountdownControl;
 public class SpiderController : MonoBehaviour
 {
 
@@ -8,6 +9,22 @@ public class SpiderController : MonoBehaviour
     private Transform enemy;
     public AudioSource audioSource;
     private CharacterController controller;
+    private bool canMove = false;
+    //private CountdownControl countdownControl;
+    public bool CanMove
+    {
+        get => canMove;
+        set
+        {
+            if (canMove != value)
+            {
+                canMove = value;
+            }
+        }
+    }// Test to make spider stop when attacking
+    public int HumansEaten { get; private set; }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +32,7 @@ public class SpiderController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         _speed = 100;
+        controller = GetComponent<CharacterController>();
     }
 
     private Vector3 moveDirection = Vector3.zero;
@@ -24,30 +42,34 @@ public class SpiderController : MonoBehaviour
 
     void Update()
     {
-        controller = GetComponent<CharacterController>();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
             animator.SetTrigger("attack");
+            CanMove = false;
         }
-        // Triggers animation walk when arrows are pressed
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow))
+        if (CanMove)
         {
-            walking = true;
-        }
-        else
-        {
-            walking = false;
-        }
 
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-        rotation *= Time.deltaTime;
-        transform.Rotate(0, rotation, 0);
-        moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirection *= speed;
+            // Triggers animation walk when arrows are pressed
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow))
+            {
+                walking = true;
+            }
+            else
+            {
+                walking = false;
+            }
 
-        animator.SetBool("walking", walking);
-        controller.Move(moveDirection * Time.deltaTime);
+            float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+            rotation *= Time.deltaTime;
+            transform.Rotate(0, rotation, 0);
+            moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection *= speed;
+
+            animator.SetBool("walking", walking);
+            controller.Move(moveDirection * Time.deltaTime);
+        }
     }
 
     /// <summary>
@@ -56,12 +78,14 @@ public class SpiderController : MonoBehaviour
     /// <param name="collideObject"></param>
     void OnTriggerEnter(Collider collideObject)
     {
-
+        int secondsToAdd = 10;
+        HumansEaten = 0;
         if (collideObject.gameObject.tag == "Human")
         {
             audioSource.Play();
             animator.SetTrigger("attack");
             collideObject.gameObject.SetActive(false);
+            IncreaseCountdown(secondsToAdd);
         }
     }
 }

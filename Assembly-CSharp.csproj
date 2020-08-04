@@ -64,13 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\! My Assets\Scripts\AIController.cs" />
-    <Compile Include="Assets\! My Assets\Scripts\CameraCollision.cs" />
-    <Compile Include="Assets\! My Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\MouseHover.cs" />
     <Compile Include="Assets\! My Assets\Scripts\ObjectPool.cs" />
-    <Compile Include="Assets\! My Assets\Scripts\SpawnNewHumans.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpiderController.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18N.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18NAudioSource.cs" />

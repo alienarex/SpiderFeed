@@ -6,24 +6,30 @@ Ny mapp som heter !My Assests.
 	- HumanAnimController
 	- SpiderAnimController
 *Scenes 
-	- SampleScene
+	- MainMenu
 	- Stage1
 *Scripts
-	- CameraCollision
-	CameraController
-	CharacterAnimation
 	AIController
-	HumanAnimController
+	CountdownControl
 	SpiderController
+	GameEngine
+	Human
+	MainMenuController
+	MouseHover
+	ObjectPool
+
+
 * Models
-	* Female
-	* Male
+	* Humans (enemies)
+		* Female
+		* Male
 	* Spider
 
 Import Assets från Assets store
 - PB_Spider 
 - ReZStudios
 - Fantasy Forest Set
+- Honeti (Fonts)
 
 Flytta avatarerna i PB_Spider och ReZStudios "Models" till ! My Assets.
 
@@ -40,4 +46,3 @@ Ljud:
 Importera ljudfiler => assigna "audio source" till gameObject.
 Fonter: 
 Importera assets från Unity: Honeti- l18N
-Countdown klockan har: ~BOWLBYONESC-REGULAR.TTF~

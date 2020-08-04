@@ -15,7 +15,6 @@ public class SpiderController : MonoBehaviour
     private bool canMove = false;
     public Text countEatenHumans;
 
-    //private CountdownControl countdownControl;
     public bool CanMove
     {
         get => canMove;
@@ -27,6 +26,7 @@ public class SpiderController : MonoBehaviour
             }
         }
     }// Test to make spider stop when attacking
+
     public int HumansEaten { get; private set; }
 
 
@@ -47,12 +47,13 @@ public class SpiderController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
-            animator.SetTrigger("attack");
-            CanMove = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
+        //    animator.SetTrigger("attack");
+        //    CanMove = false;
+        //}
+        //TODO When space pressed the movements stops but animations keeps going
         if (CanMove)
         {
 

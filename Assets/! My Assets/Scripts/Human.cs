@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
-    private float lifeTimeSpan = 4;
+    private float lifeTimeSpan = 10;
     public int Size { get; set; }
     public float LifeCycleSpan
     {

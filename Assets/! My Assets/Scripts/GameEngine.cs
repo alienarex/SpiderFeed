@@ -11,18 +11,13 @@ public class GameEngine : MonoBehaviour
     public GameObject spider;
 
     public Text countText;
-    public int initTime;
+    //public int initTime;
     public GameObject femaleHuman;
     public GameObject maleHuman;
     private GameObject randomizedHuman;
     private GameObject gameEngineGameObject;
     Transform humanParent;
     Transform player;
-
-
-    // start testkod Object Pooling
-
-    // stop testkod Object Pooling
 
     private void Awake()
     {
@@ -33,7 +28,8 @@ public class GameEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetCountdownClock(initTime);
+        SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
+        //SetCountdownClock(1);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
     }
 
@@ -47,24 +43,26 @@ public class GameEngine : MonoBehaviour
             Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
             human.transform.position = position;
         }
-        //float randomPosition = Random.Range(-100, 100);
-        //int randomIndexForHumanParent = Random.Range(0, 2);
-        //randomizedHuman = randomIndexForHumanParent == 1 ? femaleHuman : maleHuman;
-        //Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
-        //Instantiate(humanParent.GetChild(randomIndexForHumanParent), position, Quaternion.identity);
     }
+
     // Update is called once per frame
     void Update()
     {
         GetRemainingTime();
-        countText.text = CountdownText;
 
-        if (TimeEnded)
+        if (!TimeEnded)
+        {
+            countText.text = CountdownText;
+        }
+        else
         {
             animator = spider.GetComponent<Animator>();
 
             animator.SetTrigger("die");
             spider.GetComponent<SpiderController>().CanMove = false;
+            countText.text = "--:--";
+
+
         }
     }
 }

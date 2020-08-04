@@ -69,6 +69,7 @@
     <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpawnNewHumans.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpiderController.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18N.cs" />

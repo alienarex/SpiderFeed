@@ -1113,8 +1113,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424585455}
+  - component: {fileID: 424585458}
   - component: {fileID: 424585456}
-  - component: {fileID: 424585457}
   m_Layer: 0
   m_Name: WrapperStage1
   m_TagString: Untagged
@@ -1161,20 +1161,22 @@ MonoBehaviour:
   initTime: 1
   femaleHuman: {fileID: 0}
   maleHuman: {fileID: 0}
---- !u!114 &424585457
+--- !u!114 &424585458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424585454}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24655aeb6f5a8d408edc8a228045b1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 65b9795fb8d74b341bbee1954b73e357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  femaleHuman: {fileID: 2814482934604486872}
-  maleHuman: {fileID: 2082545586}
+  pooledObjects: []
+  objectToPoolFemale: {fileID: 2814482934604486872}
+  objectToPoolMale: {fileID: 2082545586}
+  amountMaleAndFemaleToPool: 10
 --- !u!1 &427532509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 172902, guid: 2ecb11c1607cc484faf50abc8a375258,
@@ -2485,6 +2487,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Human
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 8b41235f3adb44f49ba4a0f1dcb446d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 8b41235f3adb44f49ba4a0f1dcb446d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.126597
@@ -3436,6 +3442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   audioSource: {fileID: 0}
+  countEatenHumans: {fileID: 0}
 --- !u!143 &1811441086
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4247,11 +4254,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082545586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
 --- !u!4 &2116230280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422178, guid: 2fd7d0de589bd974085ef89c2b2a5fa7,
@@ -4360,6 +4368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
 --- !u!4 &2814482934603990144
 Transform:
   m_ObjectHideFlags: 0
@@ -7924,11 +7933,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2814482934604486872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
 --- !u!1 &2814482934604486878
 GameObject:
   m_ObjectHideFlags: 0

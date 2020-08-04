@@ -44,15 +44,6 @@ namespace Assets.__My_Assets.Scripts
 
         }
 
-
-        static CountdownControl()
-        {
-
-            //timeSpan = TimeSpan.FromMinutes(initTime);
-
-            //TimerTicks = (float)timeSpan.TotalSeconds;// assign input to countdown clock
-
-        }
         public static void SetCountdownClock(int startTimeInMinutes)
         {
             TimerTicks = (int)TimeSpan.FromMinutes(startTimeInMinutes).TotalSeconds;

@@ -12,7 +12,6 @@ public class GameEngine : MonoBehaviour
 
     public Text countText;
     public int initTime;
-    //private CountdownControl countdownControl;
     public GameObject femaleHuman;
     public GameObject maleHuman;
     private GameObject randomizedHuman;
@@ -20,9 +19,14 @@ public class GameEngine : MonoBehaviour
     Transform humanParent;
     Transform player;
 
+
+    // start testkod Object Pooling
+
+    // stop testkod Object Pooling
+
     private void Awake()
     {
-        humanParent = transform.GetChild(4);
+        //humanParent = transform.GetChild(4);
         player = transform.GetChild(3);
         player.GetComponent<SpiderController>().CanMove = true;
     }
@@ -35,17 +39,26 @@ public class GameEngine : MonoBehaviour
 
     public void Generate()
     {
-        float randomPosition = Random.Range(-100, 100);
-        int randomIndexForHumanParent = Random.Range(0, 2);
-        randomizedHuman = randomIndexForHumanParent == 1 ? femaleHuman : maleHuman;
-        Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
-        Instantiate(humanParent.GetChild(randomIndexForHumanParent), position, Quaternion.identity);
+        GameObject human = ObjectPool.sharedInstance.GetPooledObjects();
+        if (human != null)
+        {
+            float randomPosition = Random.Range(-100, 100);
+            human.SetActive(true);
+            Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
+            human.transform.position = position;
+        }
+        //float randomPosition = Random.Range(-100, 100);
+        //int randomIndexForHumanParent = Random.Range(0, 2);
+        //randomizedHuman = randomIndexForHumanParent == 1 ? femaleHuman : maleHuman;
+        //Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
+        //Instantiate(humanParent.GetChild(randomIndexForHumanParent), position, Quaternion.identity);
     }
     // Update is called once per frame
     void Update()
     {
         GetRemainingTime();
         countText.text = CountdownText;
+
         if (TimeEnded)
         {
             animator = spider.GetComponent<Animator>();

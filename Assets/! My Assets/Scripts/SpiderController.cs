@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using static Assets.__My_Assets.Scripts.CountdownControl;
+
+
 public class SpiderController : MonoBehaviour
 {
 
@@ -10,6 +13,8 @@ public class SpiderController : MonoBehaviour
     public AudioSource audioSource;
     private CharacterController controller;
     private bool canMove = false;
+    public Text countEatenHumans;
+
     //private CountdownControl countdownControl;
     public bool CanMove
     {
@@ -79,7 +84,6 @@ public class SpiderController : MonoBehaviour
     void OnTriggerEnter(Collider collideObject)
     {
         int secondsToAdd = 10;
-        HumansEaten = 0;
         if (collideObject.gameObject.tag == "Human")
         {
             audioSource.Play();

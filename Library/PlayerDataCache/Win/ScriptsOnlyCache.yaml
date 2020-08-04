@@ -2,8 +2,6 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AIController
-    - CameraCollision
-    - CameraController
     - GameEngine
     - Human
     - SpawnNewHumans
@@ -13,7 +11,6 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
@@ -85,11 +82,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 11338}
-    - Class: 114
       Script: {instanceID: 11624}
-    - Class: 114
-      Script: {instanceID: 11734}
     - Class: 114
       Script: {instanceID: 12496}
     - Class: 114
@@ -117,6 +110,10 @@ ScriptsOnlyBuild:
     - Class: 182
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -205,7 +202,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 1cd4f61ccfb6693009c393c6825520b4
+      Hash: ad02743f2cfa946fd590eda499c943c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameEngine
@@ -799,7 +796,7 @@ ScriptsOnlyBuild:
     className: TargetFieldOfView
   - hash:
       serializedVersion: 2
-      Hash: 0a864980d949d4a52d50b67becff3937
+      Hash: fd6a6e4de8dd44b6df324295328e1e4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpiderController
@@ -1172,4 +1169,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/! My Assets/Scenes/Stage1.unity
-  playerPath: C:/Users/annic/Documents/Code/Unity/SpiderFeed/Builds/Spider feed (20-07-30)/SpiderFeed.exe
+  playerPath: C:/Users/annic/Documents/Code/Unity/SpiderFeed/Builds/Spider feed (20-08-03)/SpiderFeed.exe

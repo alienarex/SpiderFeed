@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Assets.__My_Assets.Scripts.CountdownControl;
 
@@ -52,15 +54,19 @@ public class GameEngine : MonoBehaviour
         {
             countText.text = CountdownText;
         }
-        else
+        else if (TimeEnded)
         {
-            animator = spider.GetComponent<Animator>();
-
-            animator.SetTrigger("die");
-            spider.GetComponent<SpiderController>().CanMove = false;
-            countText.text = TimePlayed;
-
-
+            StartCoroutine("LoadScene");
         }
+    }
+
+    IEnumerator LoadScene()
+    {
+        animator = spider.GetComponent<Animator>();
+        animator.SetTrigger("die");
+        spider.GetComponent<SpiderController>().CanMove = false;
+        countText.text = GetTotalTimePlayed;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameOver");
     }
 }

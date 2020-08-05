@@ -29,7 +29,6 @@ public class SpiderController : MonoBehaviour
     public int HumansEaten { get; private set; }
 
 
-
     // Start is called before the first frame update
     void Start()
     {

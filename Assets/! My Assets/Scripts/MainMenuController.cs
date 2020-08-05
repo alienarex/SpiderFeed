@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
             if (difflctiesLevels[i])
             {
                 _setInitialMinutesToGame = defaultMinutesToAdd + i;
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene("Stage1");
             }
         }
         if (isQuit)

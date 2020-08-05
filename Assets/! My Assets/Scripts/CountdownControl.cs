@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +6,26 @@ namespace Assets.__My_Assets.Scripts
 {
     public static class CountdownControl
     {
-        public static int TimeLeft { get; set; }
-        public static bool TimeEnded { get; private set; }
+        public static string TimePlayed
+        {
+            get;
+            set;
+        }
+        public static bool TimeEnded
+        {
+            get => _timeEnded;
+            private set
+            {
 
+                if (!_timeEnded)
+                {
+                    _timeEnded = value;
+                    TimePlayed = TimeSpan.FromSeconds(_timePlayed).ToString(@"mm\:ss");
+
+                }
+            }
+        }
+        private static bool _timeEnded;
         public static Text countText;
         private static TimeSpan timeSpan;
         private static float _timerTicks;
@@ -30,6 +43,7 @@ namespace Assets.__My_Assets.Scripts
             }
 
         }
+        private static float _timePlayed;
 
         public static float TimerTicks
         {
@@ -43,25 +57,24 @@ namespace Assets.__My_Assets.Scripts
             }
 
         }
-
         public static void SetCountdownClock(int startTimeInMinutes)
         {
             TimerTicks = (int)TimeSpan.FromMinutes(startTimeInMinutes).TotalSeconds;
-
         }
         public static void IncreaseCountdown(int secondsToAdd)
         {
             TimerTicks += secondsToAdd;
         }
 
-        public static string GetRemainingTime()
+        public static void GetRemainingTime()
         {
             DecreaseCountdown();
             CountdownText = TimeSpan.FromSeconds(TimerTicks).ToString(@"mm\:ss");
-            return CountText();
         }
         private static void DecreaseCountdown()
         {
+            //TODO _timePlayed returns 1 sec under complete time
+            _timePlayed += Time.deltaTime;
             TimerTicks -= Time.deltaTime;
             TimeEnded = TimerTicks < 1 ? true : false;
 

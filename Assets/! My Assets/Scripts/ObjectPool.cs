@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
@@ -31,7 +30,7 @@ public class ObjectPool : MonoBehaviour
 
             tmp = Instantiate(objectToPoolMale);
             tmp.AddComponent<Human>();
-            
+
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
         }

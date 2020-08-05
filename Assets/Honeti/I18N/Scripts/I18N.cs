@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+using UnityEngine;
 
 namespace Honeti
 {
@@ -283,7 +283,7 @@ namespace Honeti
                 return string.Format(val.Replace("\\n", Environment.NewLine), parameters);
             }
             return val.Replace("\\n", Environment.NewLine);
-            
+
         }
 
         #endregion
@@ -369,9 +369,9 @@ namespace Honeti
 
                 string[] line = s.Split('\t');
 
-				for(int i=0; i<_availableLangs.Count; i++)
+                for (int i = 0; i < _availableLangs.Count; i++)
                 {
-					(table[_availableLangs[i]] as Hashtable).Add(line[0], line[i + 1] != "" ? line[i + 1] : " ");
+                    (table[_availableLangs[i]] as Hashtable).Add(line[0], line[i + 1] != "" ? line[i + 1] : " ");
                 }
             }
 

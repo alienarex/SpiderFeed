@@ -1,9 +1,7 @@
-﻿using static Assets.__My_Assets.Scripts.CountdownControl;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class GameEngine : MonoBehaviour
 {
@@ -28,8 +26,8 @@ public class GameEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
-        //SetCountdownClock(1);// for testing. Remove in build
+        //SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
+        SetCountdownClock(1);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
     }
 
@@ -38,7 +36,7 @@ public class GameEngine : MonoBehaviour
         GameObject human = ObjectPool.sharedInstance.GetPooledObjects();
         if (human != null)
         {
-            float randomPosition = Random.Range(-100, 100);
+            float randomPosition = UnityEngine.Random.Range(-100, 100);
             human.SetActive(true);
             Vector3 position = new Vector3(transform.position.x + randomPosition, 0, transform.position.z + randomPosition); // Calculates a new positionfor spawend human
             human.transform.position = position;
@@ -48,8 +46,8 @@ public class GameEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeSpan timeElapsed;
         GetRemainingTime();
-
         if (!TimeEnded)
         {
             countText.text = CountdownText;
@@ -60,7 +58,7 @@ public class GameEngine : MonoBehaviour
 
             animator.SetTrigger("die");
             spider.GetComponent<SpiderController>().CanMove = false;
-            countText.text = "--:--";
+            countText.text = TimePlayed;
 
 
         }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 namespace Honeti
@@ -143,7 +142,7 @@ namespace Honeti
                 }
                 if (f.customFontSizeOffset)
                 {
-                    _text.fontSize = (int)(_defaultFontSize + (_defaultFontSize * f.fontSizeOffsetPercent /100));
+                    _text.fontSize = (int)(_defaultFontSize + (_defaultFontSize * f.fontSizeOffsetPercent / 100));
                 }
                 if (f.customAlignment)
                 {

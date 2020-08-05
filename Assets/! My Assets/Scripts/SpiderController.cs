@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using static Assets.__My_Assets.Scripts.CountdownControl;
 
@@ -43,29 +42,19 @@ public class SpiderController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     float speed = 5;
     private float rotationSpeed = 100.0f;
-    private bool walking = false;
 
+    // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
-        //    animator.SetTrigger("attack");
-        //    CanMove = false;
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
+            animator.SetTrigger("attack");
+        }
+
         //TODO When space pressed the movements stops but animations keeps going
         if (CanMove)
         {
-
-            // Triggers animation walk when arrows are pressed
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow))
-            {
-                walking = true;
-            }
-            else
-            {
-                walking = false;
-            }
 
             float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
             rotation *= Time.deltaTime;
@@ -73,7 +62,16 @@ public class SpiderController : MonoBehaviour
             moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection *= speed;
 
-            animator.SetBool("walking", walking);
+            // Triggers animation when object moves
+            if (moveDirection != Vector3.zero)
+            {
+                animator.SetBool("walking", true);
+            }
+            else
+            {
+                animator.SetBool("walking", false);
+            }
+
             controller.Move(moveDirection * Time.deltaTime);
         }
     }
@@ -87,10 +85,11 @@ public class SpiderController : MonoBehaviour
         int secondsToAdd = 10;
         if (collideObject.gameObject.tag == "Human")
         {
-            audioSource.Play();
             animator.SetTrigger("attack");
+            audioSource.Play();
             collideObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
+            //audioSource.Stop();
         }
     }
 }

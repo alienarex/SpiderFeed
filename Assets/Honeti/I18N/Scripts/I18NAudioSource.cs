@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace Honeti
 {
@@ -55,7 +54,7 @@ namespace Honeti
 
             AudioClip newClip = _defaultClip;
 
-            for (int i=0; i<_clips.Length; i++)
+            for (int i = 0; i < _clips.Length; i++)
             {
                 if (_clips[i].language == newLang)
                 {

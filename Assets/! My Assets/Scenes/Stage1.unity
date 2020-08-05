@@ -1158,7 +1158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spider: {fileID: 1811441084}
   countText: {fileID: 43226171}
-  initTime: 1
   femaleHuman: {fileID: 0}
   maleHuman: {fileID: 0}
 --- !u!114 &424585458
@@ -2489,7 +2488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 8b41235f3adb44f49ba4a0f1dcb446d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 8b41235f3adb44f49ba4a0f1dcb446d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4259,7 +4258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 0}
 --- !u!4 &2116230280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422178, guid: 2fd7d0de589bd974085ef89c2b2a5fa7,
@@ -4368,7 +4366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 0}
 --- !u!4 &2814482934603990144
 Transform:
   m_ObjectHideFlags: 0
@@ -7866,7 +7863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2814482934604486873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7938,7 +7935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604bc33ba847ef42b0dd9e06eda1a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 0}
 --- !u!1 &2814482934604486878
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 namespace Honeti
@@ -56,7 +55,7 @@ namespace Honeti
 
             Sprite newSprite = _defaultImage;
 
-            for (int i=0; i<_images.Length; i++)
+            for (int i = 0; i < _images.Length; i++)
             {
                 if (_images[i].language == newLang)
                 {

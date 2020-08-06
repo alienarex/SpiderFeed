@@ -28,8 +28,8 @@ public class GameEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
-        SetCountdownClock(0);// for testing. Remove in build
+        SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
+        //SetCountdownClock(0);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
     }
 

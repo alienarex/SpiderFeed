@@ -66,6 +66,7 @@
     <Compile Include="Assets\! My Assets\Scripts\AIController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameEngine.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\GameOverMenuController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MouseHover.cs" />

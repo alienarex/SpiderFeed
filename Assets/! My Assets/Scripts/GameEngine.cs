@@ -29,7 +29,7 @@ public class GameEngine : MonoBehaviour
     void Start()
     {
         //SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
-        SetCountdownClock(1);// for testing. Remove in build
+        SetCountdownClock(0);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
     }
 
@@ -65,8 +65,10 @@ public class GameEngine : MonoBehaviour
         animator = spider.GetComponent<Animator>();
         animator.SetTrigger("die");
         spider.GetComponent<SpiderController>().CanMove = false;
+
         countText.text = GetTotalTimePlayed;
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadSceneAsync("GameOver");
+        //SceneManager.LoadScene("GameOver");
     }
 }

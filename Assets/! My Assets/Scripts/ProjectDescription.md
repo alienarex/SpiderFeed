@@ -8,15 +8,17 @@ Ny mapp som heter !My Assests.
 *Scenes 
 	- MainMenu
 	- Stage1
+	-GameOver
 *Scripts
 	AIController
 	CountdownControl
-	SpiderController
 	GameEngine
 	Human
 	MainMenuController
 	MouseHover
 	ObjectPool
+	SpiderController
+
 
 
 * Models

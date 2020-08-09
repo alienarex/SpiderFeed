@@ -28,8 +28,8 @@ public class ObjectPool : MonoBehaviour
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
 
-            tmp = Instantiate(objectToPoolMale);
             tmp.AddComponent<Human>();
+            tmp = Instantiate(objectToPoolMale);
 
             tmp.SetActive(false);
             pooledObjects.Add(tmp);

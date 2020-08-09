@@ -7,29 +7,32 @@ using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class GameEngine : MonoBehaviour
 {
-    Animator animator;
-    public GameObject spider;
-
-    public Text countText;
+    #region possible obsolete
     //public int initTime;
-    public GameObject femaleHuman;
-    public GameObject maleHuman;
-    private GameObject randomizedHuman;
-    private GameObject gameEngineGameObject;
-    Transform humanParent;
+    //private GameObject randomizedHuman;
+    //private GameObject gameEngineGameObject;
+    //Transform humanParent;
+    //private GameObject spider;
+    #endregion possible obsolete
+
+    Animator animator;
+    public Text countText;
+    //public GameObject femaleHuman;
+    //public GameObject maleHuman;
     Transform player;
 
     private void Awake()
     {
-        //humanParent = transform.GetChild(4);
+        //humanParent = transform.GetChild(4); //Obsolete?
         player = transform.GetChild(3);
         player.GetComponent<SpiderController>().CanMove = true;
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
-        //SetCountdownClock(0);// for testing. Remove in build
+        //SetCountdownClock(MainMenuController.SetInitialMinutesToGame);
+        SetCountdownClock(1);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
     }
 
@@ -48,7 +51,7 @@ public class GameEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeSpan timeElapsed;
+        TimeSpan timeElapsed; // For duration of game
         GetRemainingTime();
         if (!TimeEnded)
         {
@@ -62,13 +65,12 @@ public class GameEngine : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        animator = spider.GetComponent<Animator>();
+        animator = player.GetComponent<Animator>();
         animator.SetTrigger("die");
-        spider.GetComponent<SpiderController>().CanMove = false;
+        player.GetComponent<SpiderController>().CanMove = false;
 
         countText.text = GetTotalTimePlayed;
         yield return new WaitForSeconds(3);
-        SceneManager.LoadSceneAsync("GameOver");
-        //SceneManager.LoadScene("GameOver");
+        SceneManager.LoadSceneAsync("GameOver"); // Can Async put gameover scene on top of current scenee?
     }
 }

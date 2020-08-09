@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
-    private float lifeTimeSpan = 10;
+    private float _lifeTimeSpan = 20;
+
     public int Size { get; set; }
     public float LifeCycleSpan
     {
-        get => lifeTimeSpan;
+        get => _lifeTimeSpan;
         private set
         {
-            if (lifeTimeSpan != value)
+            if (_lifeTimeSpan != value)
             {
-                lifeTimeSpan = value;
+                _lifeTimeSpan = value;
             }
         }
     }
@@ -32,7 +33,7 @@ public class Human : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LifeCycleSpan = lifeTimeSpan;
+        LifeCycleSpan = _lifeTimeSpan;
     }
 
     // Update is called once per frame

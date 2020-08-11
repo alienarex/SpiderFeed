@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - Fire
   - Human
-  - testAddLayerGameOver
+  - gameOverTag
   layers:
   - Default
   - TransparentFX

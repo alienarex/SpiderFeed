@@ -11,7 +11,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        targetPosition = new Vector3(Random.Range(-100, 100), 0, Random.Range(-100, 100));
+        targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 1.0f, Random.Range(-70.0f, 70.0f)); // 1.0 to keep em on the ground not below
 
     }
 
@@ -19,7 +19,7 @@ public class AIController : MonoBehaviour
     {
         if (Vector3.Distance(targetPosition, this.transform.position) < 10)
         {
-            targetPosition = new Vector3(Random.Range(-100.0f, 100.0f), 0, Random.Range(-100.0f, 100.0f));
+            targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 1.0f, Random.Range(-70.0f, 70.0f)); // 1.0 to keep em on the ground not below
         }
     }
 

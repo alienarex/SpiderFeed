@@ -1,13 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Assets.__My_Assets.Scripts.CountdownControl;
 
 
 public class SpiderController : MonoBehaviour
 {
-
-    //float speed = 5; // Obsolete?
-    //private Transform enemy; // Obsolete?
 
     [SerializeField] private float _movementSpeed;
 
@@ -19,19 +18,6 @@ public class SpiderController : MonoBehaviour
 
     public AudioSource audioSource;
     public Text countEatenHumans;
-    public int HumansEaten { get; private set; }
-
-    public bool CanMove
-    {
-        get => _canMove;
-        set
-        {
-            if (_canMove != value)
-            {
-                _canMove = value;
-            }
-        }
-    }// Test to make spider stop when attacking
 
 
     // Start is called before the first frame update
@@ -46,15 +32,17 @@ public class SpiderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
-            _animator.SetTrigger("attack");
-        }
 
-        //TODO When space pressed the movements stops but animations keeps going
-        if (CanMove)
+        GetRemainingTime();
+        if (!TimeEnded)
         {
+            //countText.text = CountdownText;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
+                _animator.SetTrigger("attack");
+            }
 
             float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
             rotation *= Time.deltaTime;
@@ -74,7 +62,23 @@ public class SpiderController : MonoBehaviour
             }
 
             _controller.Move(_moveDirection * Time.deltaTime);
+
         }
+        else if (TimeEnded)
+        {
+            StartCoroutine("LoadScene");
+        }
+    }
+
+
+
+    IEnumerator LoadScene()
+    {
+        //animator = player.GetComponent<Animator>();
+        _animator.SetTrigger("die");
+        //player.GetComponent<SpiderController>().CanMove = false;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
     }
 
     /// <summary>
@@ -90,7 +94,6 @@ public class SpiderController : MonoBehaviour
             audioSource.Play();
             colliderObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
-            //audioSource.Stop();
         }
     }
 }

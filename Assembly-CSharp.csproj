@@ -65,13 +65,17 @@
   <ItemGroup>
     <Compile Include="Assets\! My Assets\Scripts\AIController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
-    <Compile Include="Assets\! My Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameOverMenuController.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\GameResult.cs" />
     <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MouseHover.cs" />
     <Compile Include="Assets\! My Assets\Scripts\ObjectPool.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\SaveLoad.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\SavePlayerScoreController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\SpiderController.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\StageController.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18N.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18NAudioSource.cs" />
     <Compile Include="Assets\Honeti\I18N\Scripts\I18NImage.cs" />

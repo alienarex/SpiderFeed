@@ -6,9 +6,10 @@ Ny mapp som heter !My Assests.
 	- HumanAnimController
 	- SpiderAnimController
 *Scenes 
-	- MainMenu
-	- Stage1
-	-GameOver
+	- MainMenuScene
+	- StageScene
+	- GameOverScene
+	- SavePlayerScene
 *Scripts
 	AIController
 	CountdownControl

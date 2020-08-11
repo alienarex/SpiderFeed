@@ -6,25 +6,27 @@ namespace Assets.__My_Assets.Scripts
 {
     public static class CountdownControl
     {
-        public static string GetTotalTimePlayed
-        {
-            get => _totalTimePlayed;
-            set
-            {
-                if (_totalTimePlayed != value)
-                {
-                    _totalTimePlayed = value;
-                }
-            }
-        }
-        public static bool TimeEnded { get; private set; }
         private static bool _timeEnded;
         public static Text countText;
         private static TimeSpan timeSpan;
         private static float _timerTicks;
         private static string _countdownText;
-        private static string _totalTimePlayed;
+        private static string _convertTotalTimePlayedToString;
+        private static TimeSpan _totalPlaydTime;
 
+
+        public static bool TimeEnded { get; private set; }
+        public static string GetTotalTimePlayed
+        {
+            get => _convertTotalTimePlayedToString;
+            set
+            {
+                if (_convertTotalTimePlayedToString != value)
+                {
+                    _convertTotalTimePlayedToString = value;
+                }
+            }
+        }
         public static string CountdownText
         {
             get => _countdownText;
@@ -37,7 +39,6 @@ namespace Assets.__My_Assets.Scripts
             }
 
         }
-        private static int _totalPlaydTime;
 
         public static float TimerTicks
         {
@@ -60,7 +61,7 @@ namespace Assets.__My_Assets.Scripts
         public static void SetCountdownClock(int startTimeInMinutes)
         {
             TimerTicks = (int)TimeSpan.FromMinutes(startTimeInMinutes).TotalSeconds;
-            _totalPlaydTime = startTimeInMinutes;
+            _totalPlaydTime = TimeSpan.FromMinutes(startTimeInMinutes);
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace Assets.__My_Assets.Scripts
         public static void IncreaseCountdown(int secondsToAdd)
         {
             TimerTicks += secondsToAdd;
-            _totalPlaydTime += secondsToAdd;
+            _totalPlaydTime += TimeSpan.FromSeconds(secondsToAdd);
         }
 
         /// <summary>
@@ -89,7 +90,7 @@ namespace Assets.__My_Assets.Scripts
         private static void DecreaseCountdown()
         {
             TimerTicks -= Time.deltaTime;
-            if (TimerTicks.Equals(0))
+            if (TimerTicks < 0.5)
             {
                 TimeEnded = true;
                 GetTotalTimePlayed = _totalPlaydTime.ToString(@"mm\:ss");

@@ -1,41 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverMenuController : MonoBehaviour
 {
+    public InputField userName;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     void OnMouseUp()
     {
-        string menuChoise = this.GetComponent<BoxCollider>().name;
+        string choise = this.GetComponent<BoxCollider>().name;
 
-        if (menuChoise == "RestartGame")
+        switch (choise)
         {
-            SceneManager.LoadScene("Stage1");
-        }
-        else if (menuChoise == "MainMenu")
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-        else if (menuChoise == "Quit")
-        {
-            Application.Quit();
-        }
-        else
-        {
-            throw new System.Exception("Something went wrong!");
+            case "RestartGame":
+                SceneManager.LoadScene("StageScene");
+                break;
+            case "MainMenu":
+                SceneManager.LoadScene("MainMenuScene");
+                break;
+            case "Quit":
+                Application.Quit();
+                break;
+            default:
+                throw new System.Exception("Something went wrong!");
         }
 
     }
     // Update is called once per frame
     void Update()
     {
-
+        //playerScore.PlayerName = userName.text;
     }
 }

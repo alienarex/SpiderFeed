@@ -37,9 +37,6 @@ public class SavePlayerScoreController : MonoBehaviour
                 PlayerPrefs.SetString("playerName", playerName);
                 PlayerPrefs.SetString("totalTime", GetTotalTimePlayed);
                 string mju = PlayerPrefs.GetString("playerName");
-                PlayerPrefs.SetString("playerName", "Annica");
-                PlayerPrefs.SetString("totalTime", "00:01");
-                string str = PlayerPrefs.GetString("playerName");
                 StartCoroutine("LoadScene");
                 // Save result with PlayerScore class
                 break;

@@ -17,7 +17,6 @@ public class Human : MonoBehaviour
             }
         }
     }
-
     // Ref: https://forum.unity.com/threads/setting-inactive-after-some-seconds-script-only-working-once.488975/
     void OnEnable()
     {
@@ -29,7 +28,6 @@ public class Human : MonoBehaviour
         yield return new WaitForSeconds(LifeCycleSpan);
         this.gameObject.SetActive(false);
     }
-
     // Start is called before the first frame update
     void Start()
     {

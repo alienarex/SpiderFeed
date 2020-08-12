@@ -22,12 +22,12 @@ public class MouseHover : MonoBehaviour
     private void OnMouseEnter()
     {
         this.renderer.material.color = Color.green;
-        textMesh.fontSize = textMesh.fontSize + changeFontSizeOnMouseOver;
+        textMesh.fontSize += changeFontSizeOnMouseOver;
     }
     private void OnMouseExit()
     {
-        this.GetComponent<Renderer>().material.color = Color.white;
-        textMesh.fontSize = textMesh.fontSize - changeFontSizeOnMouseOver;
+        this.renderer.material.color = Color.white;
+        textMesh.fontSize -= changeFontSizeOnMouseOver;
 
     }
 

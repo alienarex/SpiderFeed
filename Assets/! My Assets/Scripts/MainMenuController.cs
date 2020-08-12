@@ -39,18 +39,29 @@ public class MainMenuController : MonoBehaviour
 
     void OnMouseUp()
     {
-        int defaultMinutesToAdd = 1;
-        for (int i = 0; i < difflctiesLevels.Length; i++)
+        string submit = this.GetComponent<BoxCollider>().name;
+
+        switch (submit)
         {
-            if (difflctiesLevels[i])
-            {
-                _setInitialMinutesToGame = defaultMinutesToAdd + i;
-                SceneManager.LoadScene("Stage1");
-            }
-        }
-        if (isQuit)
-        {
-            Application.Quit();
+            case "MenuEasy":
+                PlayerPrefs.SetInt("initialGamingTime", 3);
+                SceneManager.LoadScene("StageScene");
+
+                break;
+            case "MenuMedium":
+                PlayerPrefs.SetInt("initialGamingTime", 2);
+                SceneManager.LoadScene("StageScene");
+
+                break;
+            case "MenuHard":
+                PlayerPrefs.SetInt("initialGamingTime", 1);
+                SceneManager.LoadScene("StageScene");
+                break;
+            case "Quit":
+                Application.Quit();
+                break;
+            default:
+                break;
         }
     }
 

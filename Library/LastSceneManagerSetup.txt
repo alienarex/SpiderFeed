@@ -1,15 +1,15 @@
 sceneSetups:
 - path: Assets/! My Assets/Scenes/MainMenuScene.unity
-  isLoaded: 0
-  isActive: 0
+  isLoaded: 1
+  isActive: 1
   isSubScene: 0
 - path: Assets/! My Assets/Scenes/StageScene.unity
   isLoaded: 0
   isActive: 0
   isSubScene: 0
 - path: Assets/! My Assets/Scenes/SavePlayerScene.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
   isSubScene: 0
 - path: Assets/! My Assets/Scenes/GameOverScene.unity
   isLoaded: 0

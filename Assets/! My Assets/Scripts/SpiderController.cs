@@ -16,7 +16,7 @@ public class SpiderController : MonoBehaviour
     private CharacterController _controller;
     private bool _canMove;
 
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public Text countEatenHumans;
 
 
@@ -81,6 +81,8 @@ public class SpiderController : MonoBehaviour
         SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
     }
 
+
+
     /// <summary>
     /// Removes the object when collided and attacked
     /// </summary>
@@ -90,8 +92,8 @@ public class SpiderController : MonoBehaviour
         int secondsToAdd = 10;
         if (colliderObject.gameObject.tag == "Human")
         {
-            _animator.SetTrigger("attack");
             audioSource.Play();
+            _animator.SetTrigger("attack");
             colliderObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
         }

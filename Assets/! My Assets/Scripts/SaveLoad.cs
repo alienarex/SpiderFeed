@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Assets.__My_Assets.Scripts
 {
+    // Ref: https://gamedevelopment.tutsplus.com/tutorials/how-to-save-and-load-your-players-progress-in-unity--cms-20934
     public static class SaveLoad
     {
         public static List<Player> savedGames = new List<Player>();

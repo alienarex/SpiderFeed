@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.__My_Assets.Scripts;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,15 +30,20 @@ public class SavePlayerScoreController : MonoBehaviour
     private void OnMouseUp()
     {
         string submit = this.GetComponent<BoxCollider>().name;
-        string playerName = GameObject.Find("InputField").GetComponent<InputField>().text;
+        string inputName = GameObject.Find("InputField").GetComponent<InputField>().text;
 
         switch (submit)
         {
             case "SaveResult":
-                PlayerPrefs.SetString("playerName", playerName);
-                PlayerPrefs.SetString("totalTime", GetTotalTimePlayed);
-                string mju = PlayerPrefs.GetString("playerName");
+                Player player = new Player
+                {
+                    playerName = inputName,
+                };
+                player.gameResults.Add(new GameResult { totalPlayedTime = GetTotalTimePlayed });
+                Player.current = player;
+                SaveLoad.Save();
                 StartCoroutine("LoadScene");
+                SaveLoad.Load();
                 // Save result with PlayerScore class
                 break;
             case "DoNotSave":

@@ -11,7 +11,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 1.0f, Random.Range(-70.0f, 70.0f)); // 1.0 to keep em on the ground not below
+        targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 0.0f, Random.Range(-70.0f, 70.0f));
 
     }
 
@@ -19,7 +19,7 @@ public class AIController : MonoBehaviour
     {
         if (Vector3.Distance(targetPosition, this.transform.position) < 10)
         {
-            targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 1.0f, Random.Range(-70.0f, 70.0f)); // 1.0 to keep em on the ground not below
+            targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 0.0f, Random.Range(-70.0f, 70.0f));
         }
     }
 
@@ -30,12 +30,11 @@ public class AIController : MonoBehaviour
         Vector3 direction = targetPosition - this.transform.position; // makes the enemy know where the player are
         direction.y = 0; // Removces the posibility for the character to rotate upwards (y-angle)
 
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f); // makes the character look at the set position.
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
         if (direction.magnitude > 5) // magnitude == length (Z axes is forward)
         {// might be useful for checking if clsoe enought to eat.
             this.transform.Translate(0, 0, 0.05f);
-            //anim.SetBool("isWalking", true);
         }
     }
     void OnAttack(Collider colliderObject)

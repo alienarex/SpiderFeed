@@ -1841,9 +1841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62965470aedb25e46bc18ee4cb4ad6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  countText: {fileID: 43226171}
-  player: {fileID: 0}
 --- !u!114 &424585457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7920,7 +7917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.322263
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7928,7 +7925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: f5a9bd478ca094495a4520e37f57420d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9726,7 +9723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1000
-  audioSource: {fileID: 0}
   countEatenHumans: {fileID: 0}
 --- !u!143 &1811441086
 CharacterController:
@@ -9772,9 +9768,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 496039ad7fb9f854ba754d09864f32f4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4b66d3285d8f3954890b442548042cb6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.84
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9783,7 +9779,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -9848,7 +9844,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.19
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10965,6 +10961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1445690091}
+  audioSource: {fileID: 0}
 --- !u!136 &2082545588
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14778,7 +14775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2814482934604486873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14792,6 +14789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1445690091}
+  audioSource: {fileID: 0}
 --- !u!1 &2814482934604486874
 GameObject:
   m_ObjectHideFlags: 0

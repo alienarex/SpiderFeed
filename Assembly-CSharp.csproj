@@ -67,6 +67,7 @@
     <Compile Include="Assets\! My Assets\Scripts\CountdownControl.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameOverMenuController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\GameResult.cs" />
+    <Compile Include="Assets\! My Assets\Scripts\GetScoreboard.cs" />
     <Compile Include="Assets\! My Assets\Scripts\Human.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\! My Assets\Scripts\MouseHover.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <None Include="Assets\! My Assets\Fantasy Forest Set\Sources\Shaders\StandardSpecular_2Sided.shader" />
+    <None Include="Assets\! My Assets\Scripts\ClassDiagram.cd" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\! My Assets\Fantasy Forest Set\Sources\Shaders\Grid.shader" />
     <None Include="Assets\! My Assets\PB_Spider\readme.txt" />

@@ -11,7 +11,7 @@ public class SpiderController : MonoBehaviour
     [SerializeField] private float _movementSpeed;
 
     private Vector3 _moveDirection = Vector3.zero;
-    private float _rotationSpeed = 100.0f;
+    private float _rotationSpeed = 150.0f;
     private Animator _animator;
     private CharacterController _controller;
     private bool _canMove;
@@ -25,7 +25,7 @@ public class SpiderController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
-        _movementSpeed = 5;
+        _movementSpeed = 7;
         _controller = GetComponent<CharacterController>();
     }
 

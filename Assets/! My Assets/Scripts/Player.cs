@@ -10,12 +10,14 @@ namespace Assets.__My_Assets.Scripts
         public string playerName;
         public string totalPlayedTime;
         public int numberOfHumansEaten;
+        public float highestScore;
         public List<GameResult> gameResults;
 
         public Player()
         {
             gameResults = new List<GameResult>();
         }
+
 
     }
 }

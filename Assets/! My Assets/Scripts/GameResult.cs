@@ -4,5 +4,6 @@
     public class GameResult
     {
         public string totalPlayedTime;
+        public float totalTime;
     }
 }

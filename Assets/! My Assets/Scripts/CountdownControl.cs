@@ -10,6 +10,7 @@ namespace Assets.__My_Assets.Scripts
         public static Text countText;
         private static TimeSpan timeSpan;
         private static float _timerTicks;
+        public static float testToSortListOnTimerTicks;
         private static string _countdownText;
         private static string _convertTotalTimePlayedToString;
         private static TimeSpan _totalPlaydTime;
@@ -61,6 +62,7 @@ namespace Assets.__My_Assets.Scripts
         public static void SetCountdownClock(int startTimeInMinutes)
         {
             TimerTicks = (int)TimeSpan.FromMinutes(startTimeInMinutes).TotalSeconds;
+            testToSortListOnTimerTicks = (int)TimeSpan.FromMinutes(startTimeInMinutes).TotalSeconds; // test 20-08-13
             _totalPlaydTime = TimeSpan.FromMinutes(startTimeInMinutes);
         }
 
@@ -71,6 +73,7 @@ namespace Assets.__My_Assets.Scripts
         public static void IncreaseCountdown(int secondsToAdd)
         {
             TimerTicks += secondsToAdd;
+            testToSortListOnTimerTicks += secondsToAdd; // test 20-08-13
             _totalPlaydTime += TimeSpan.FromSeconds(secondsToAdd);
         }
 

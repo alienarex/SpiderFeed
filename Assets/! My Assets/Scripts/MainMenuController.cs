@@ -14,22 +14,21 @@ public class MainMenuController : MonoBehaviour
     public Transform transformMainMenu;
 
     public static MainMenuController mainMenu;
-    public static int SetInitialMinutesToGame
-    {
-        get => _setInitialMinutesToGame;
-        private set
-        {
-            if (_setInitialMinutesToGame != value)
-            {
-                _setInitialMinutesToGame = value;
-            }
-        }
+    //public static int SetInitialMinutesToGame
+    //{
+    //    get => _setInitialMinutesToGame;
+    //    private set
+    //    {
+    //        if (_setInitialMinutesToGame != value)
+    //        {
+    //            _setInitialMinutesToGame = value;
+    //        }
+    //    }
 
-    }
+    //}
 
     private void Awake()
     {
-        difflctiesLevels = new bool[3] { hard, medium, easy };
     }
     // Start is called before the first frame update
     void Start()
@@ -44,6 +43,7 @@ public class MainMenuController : MonoBehaviour
         switch (submit)
         {
             case "MenuEasy":
+
                 PlayerPrefs.SetInt("initialGamingTime", 3);
                 SceneManager.LoadScene("StageScene");
 

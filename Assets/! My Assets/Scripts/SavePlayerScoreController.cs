@@ -39,7 +39,7 @@ public class SavePlayerScoreController : MonoBehaviour
                 {
                     playerName = inputName,
                 };
-                player.gameResults.Add(new GameResult { totalPlayedTime = GetTotalTimePlayed });
+                player.gameResults.Add(new GameResult { totalTime = testToSortListOnTimerTicks });
                 Player.current = player;
                 SaveLoad.Save();
                 StartCoroutine("LoadScene");

@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Human
   - gameOverTag
+  - scoreboard
   layers:
   - Default
   - TransparentFX

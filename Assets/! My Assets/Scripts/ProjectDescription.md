@@ -20,7 +20,9 @@ Ny mapp som heter !My Assests.
 	ObjectPool
 	SpiderController
 
-
+Static classes (Singleton)
+CountdownControl
+SaveLoadd
 
 * Models
 	* Humans (enemies)

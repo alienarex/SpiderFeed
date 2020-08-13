@@ -10,8 +10,8 @@ public class StageController : MonoBehaviour
     void Start()
     {
         int initMinutes = PlayerPrefs.GetInt("initialGamingTime");
-        //SetCountdownClock(initMinutes);
-        SetCountdownClock(0);// for testing. Remove in build
+        SetCountdownClock(initMinutes);
+        //SetCountdownClock(0);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
         countText.text = CountdownText;
     }

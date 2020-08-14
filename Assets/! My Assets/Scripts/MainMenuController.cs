@@ -5,31 +5,11 @@ public class MainMenuController : MonoBehaviour
 {
     // Ref: https://www.instructables.com/id/How-to-make-a-main-menu-in-Unity/
 
-    private bool[] difflctiesLevels;
-    public bool easy;
-    public bool medium;
-    public bool hard;
-    public bool isQuit;
-    public static int _setInitialMinutesToGame;
-    public Transform transformMainMenu;
+    //public static int _setInitialMinutesToGame;
+    //public Transform transformMainMenu;
 
     public static MainMenuController mainMenu;
-    //public static int SetInitialMinutesToGame
-    //{
-    //    get => _setInitialMinutesToGame;
-    //    private set
-    //    {
-    //        if (_setInitialMinutesToGame != value)
-    //        {
-    //            _setInitialMinutesToGame = value;
-    //        }
-    //    }
 
-    //}
-
-    private void Awake()
-    {
-    }
     // Start is called before the first frame update
     void Start()
     {

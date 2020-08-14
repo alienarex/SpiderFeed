@@ -51,7 +51,7 @@ public class GetScoreboard : MonoBehaviour
                 foreach (var game in players[i].gameResults.OrderByDescending(x => x.totalTime))
                 {
                     var test = game;
-                    strBulider.AppendFormat("1. {0}\t{1}\n", players[i].playerName, TimeSpan.FromSeconds(game.totalTime).ToString((@"mm\:ss")));
+                    strBulider.AppendFormat("{0}. {1}\t{2}\n", i + 1, players[i].playerName, TimeSpan.FromSeconds(game.totalTime).ToString((@"mm\:ss")));
                 }
             }
             scoreboardText.text = strBulider.ToString();

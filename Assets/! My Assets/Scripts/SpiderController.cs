@@ -27,12 +27,13 @@ public class SpiderController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _movementSpeed = 7;
         _controller = GetComponent<CharacterController>();
+        // call the function in start to set
+        PlaySoundInterval(1.5f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         GetRemainingTime();
         if (!TimeEnded)
         {
@@ -70,7 +71,12 @@ public class SpiderController : MonoBehaviour
         }
     }
 
+    void PlaySoundInterval(float audioDuration, float audioStartPoint = 0.01f)
+    {
+        // ref: https://forum.unity.com/threads/soundchannel-cpp.371808/#post-2411098
 
+        audioSource.time = Mathf.Min(audioDuration, audioSource.clip.length - audioStartPoint);
+    }
 
     IEnumerator LoadScene()
     {
@@ -81,8 +87,6 @@ public class SpiderController : MonoBehaviour
         SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
     }
 
-
-
     /// <summary>
     /// Removes the object when collided and attacked
     /// </summary>
@@ -92,8 +96,9 @@ public class SpiderController : MonoBehaviour
         int secondsToAdd = 10;
         if (colliderObject.gameObject.tag == "Human")
         {
-            audioSource.Play();
             _animator.SetTrigger("attack");
+
+            this.audioSource.Play();
             colliderObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
         }

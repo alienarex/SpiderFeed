@@ -19,7 +19,11 @@ public class StageController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countText.text = CountdownText;
+        if (!TimeEnded)
+        {
+            countText.text = CountdownText;
+        }
+
     }
 
     public void Generate()

@@ -19,7 +19,7 @@ public class GameOverMenuController : MonoBehaviour
         switch (choise)
         {
             case "RestartGame":
-                SceneManager.LoadScene("StageScene");
+                SceneManager.LoadScene("Stage1");
                 break;
             case "MainMenu":
                 SceneManager.LoadScene("MainMenuScene");

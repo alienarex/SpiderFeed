@@ -9,7 +9,7 @@ public class SpiderController : MonoBehaviour
 {
 
     [SerializeField] private float _movementSpeed;
-
+    public GameObject bloodSplatterPrefab;
     private Vector3 _moveDirection = Vector3.zero;
     private float _rotationSpeed = 150.0f;
     private Animator _animator;
@@ -83,7 +83,7 @@ public class SpiderController : MonoBehaviour
         //animator = player.GetComponent<Animator>();
         _animator.SetTrigger("die");
         //player.GetComponent<SpiderController>().CanMove = false;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
     }
 
@@ -97,8 +97,8 @@ public class SpiderController : MonoBehaviour
         if (colliderObject.gameObject.tag == "Human")
         {
             _animator.SetTrigger("attack");
-
             this.audioSource.Play();
+
             colliderObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
         }

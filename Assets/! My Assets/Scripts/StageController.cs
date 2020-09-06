@@ -5,7 +5,8 @@ using static Assets.__My_Assets.Scripts.CountdownControl;
 public class StageController : MonoBehaviour
 {
     public Text countText;
-
+    private bool _isPaused;
+    public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,48 @@ public class StageController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PauseOrResumeGame();
         if (!TimeEnded)
         {
             countText.text = CountdownText;
         }
-
     }
+
+    void PauseOrResumeGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10))
+        {
+            if (_isPaused)
+            {
+                pauseMenu.SetActive(true);
+                ResumeGame();
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                PauseGame();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Sets timeScale to zero, pausing the game
+    /// </summary>
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        _isPaused = true;
+    }
+
+    /// <summary>
+    /// Sets timeScale to 1, resuming the game
+    /// </summary>
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        _isPaused = false;
+    }
+
 
     public void Generate()
     {

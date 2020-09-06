@@ -16,6 +16,16 @@ public class MainMenuController : MonoBehaviour
 
     }
 
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    /// <summary>
+    /// Manange the submission from main menu options  
+    /// </summary>
     void OnMouseUp()
     {
         string submit = this.GetComponent<BoxCollider>().name;
@@ -44,11 +54,4 @@ public class MainMenuController : MonoBehaviour
                 break;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }

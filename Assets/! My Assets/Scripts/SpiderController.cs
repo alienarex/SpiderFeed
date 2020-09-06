@@ -16,18 +16,17 @@ public class SpiderController : MonoBehaviour
     private CharacterController _controller;
     private bool _canMove;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public Text countEatenHumans;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _movementSpeed = 7;
         _controller = GetComponent<CharacterController>();
-        // call the function in start to set
+        // call the function in start to configure audio
         PlaySoundInterval(1.5f, 0.2f);
     }
 

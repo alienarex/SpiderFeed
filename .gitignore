@@ -1,4 +1,9 @@
 Builds/
 Temp/
 Library/
+obj/
+packages.config
+Packages/
+Logs/
+.vs/
 ~*

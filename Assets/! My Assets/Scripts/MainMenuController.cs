@@ -33,7 +33,6 @@ public class MainMenuController : MonoBehaviour
         switch (submit)
         {
             case "MenuEasy":
-
                 PlayerPrefs.SetInt("initialGamingTime", 3);
                 SceneManager.LoadScene("Stage1");
 
@@ -49,6 +48,12 @@ public class MainMenuController : MonoBehaviour
                 break;
             case "Quit":
                 Application.Quit();
+                break;
+            case "Scoreboard":
+                SceneManager.LoadScene("ScoreboardScene");
+                break;
+            case "MainMenu":
+                SceneManager.LoadScene("MainMenuScene");
                 break;
             default:
                 break;

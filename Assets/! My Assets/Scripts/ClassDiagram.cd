@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assets.__My_Assets.Scripts.CountdownControl">
+    <Position X="12.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAICBKIIAAAAAAAAQAABABAAAAAAgCAEABCA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\CountdownControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverMenuController">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\GameOverMenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.__My_Assets.Scripts.GameResult">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\GameResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Human" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAIgAAAEAAAAAAAAAAAAAAAAAACAAAACAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\Human.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuController">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQQAAAAACAAAAAgABAAAAABAAgAEAAAAAAQAAACAEA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\MainMenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseHover">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAABCAAAAGAAAAAAAAAAAAAAAgEA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\MouseHover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectPool" Collapsed="true">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAADAAAABAAAAAAAAAIAQAACAAAAAQAAAAAEA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\ObjectPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SavePlayerScoreController" Collapsed="true">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEACAAAAAAAAAACAAAAAAAAAAAAAAAgAACAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\SavePlayerScoreController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpiderController">
+    <Position X="14.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAEECQBAAAAEEAAAYAAAAEAAAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\SpiderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageController">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\StageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.__My_Assets.Scripts.Player">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAUCAAAAgAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.__My_Assets.Scripts.SaveLoad">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\SaveLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIController">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAiAAAACAAAAAAAAAAAAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\! My Assets\Scripts\AIController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

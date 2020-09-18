@@ -7,6 +7,7 @@ obj/
 packages.config
 Packages/
 Logs/
+Assembly-*
 >>>>>>> fromCommit_1b774dc6972066629bef0b1e8c8adaa12da54a3a
 .vs/
 ~*

@@ -7,71 +7,43 @@ using UnityEngine.UI;
 
 public class GetScoreboard : MonoBehaviour
 {
-
     public Text scoreboardText;
-    public Image image;
-    public Button button;
-    Text buttonText;
+
     private void Awake()
     {
         SaveLoad.Load();
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        var players1 = new List<Player>() { new Player { playerName = "Eva" } };
-        players1.Add(new Player { playerName = "Annica" });
-        players1[1].gameResults.Add(new GameResult { totalTime = 240 });// 4minuter
-        players1[1].gameResults.Add(new GameResult { totalTime = 90 }); // 1.5 minut
-        players1[1].gameResults.Add(new GameResult { totalTime = 180 }); // 3 minuter
-        players1[0].gameResults.Add(new GameResult { totalTime = 60 });// 1 minuter
-        var bajs = players1.Select(x => x.gameResults.Select(g => g.totalTime));
-        */
-
-        button.gameObject.GetComponentInChildren<Text>().text = "High score";
-        button.GetComponent<Button>().onClick.AddListener(TaskOnClick);
-        //Button btn = getScoreBoardButton.GetComponent<Button>();
-        //btn.onClick.AddListener(TaskOnClick);
-
+        GetPlayersHighScoreOrderByDescending();
     }
-
-    void TaskOnClick()
-    {
-        if (image.GetComponent<Image>().enabled == false && scoreboardText.GetComponent<Text>().enabled == false)
-        {
-            image.GetComponent<Image>().enabled = true;
-            scoreboardText.GetComponent<Text>().enabled = true;
-
-            List<Player> players = SaveLoad.savedGames;
-
-            System.Text.StringBuilder strBulider = new System.Text.StringBuilder();
-            for (int i = 0; i < players.Count; i++)
-            {
-                foreach (var game in players[i].gameResults.OrderByDescending(x => x.totalTime))
-                {
-                    var test = game;
-                    strBulider.AppendFormat("{0}. {1}\t{2}\n", i + 1, players[i].playerName, TimeSpan.FromSeconds(game.totalTime).ToString((@"mm\:ss")));
-                }
-            }
-            var mjupp = players.OrderByDescending(player => player.gameResults.Max(gameResult => gameResult.totalTime));
-            scoreboardText.text = strBulider.ToString();
-            button.gameObject.GetComponentInChildren<Text>().text = "Back";
-
-        }
-        else
-        {
-            image.GetComponent<Image>().enabled = false;
-            scoreboardText.GetComponent<Text>().enabled = false;
-            button.gameObject.GetComponentInChildren<Text>().text = "High Score";
-
-        }
-    }
-
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    /// <summary>
+    /// Gets players saved highscore stored in Application.persistentDataPath.
+    /// </summary>
+    void GetPlayersHighScoreOrderByDescending()
+    {
+        scoreboardText.GetComponent<Text>().enabled = true;
+
+        List<Player> players = SaveLoad.savedGames;
+
+        System.Text.StringBuilder strBulider = new System.Text.StringBuilder();
+        for (int i = 0; i < players.Count; i++)
+        {
+            foreach (var savedResult in players[i].gameResults.OrderByDescending(x => x.totalTime))
+            {
+                var test = savedResult;
+                strBulider.AppendFormat("{0}. {1}\t{2}\n", i + 1, players[i].playerName, TimeSpan.FromSeconds(savedResult.totalTime).ToString((@"mm\:ss")));
+            }
+        }
+        scoreboardText.text = strBulider.ToString();
     }
 }

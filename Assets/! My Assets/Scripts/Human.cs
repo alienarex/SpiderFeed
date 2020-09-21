@@ -4,7 +4,6 @@ using UnityEngine;
 public class Human : MonoBehaviour
 {
     private float _lifeTimeSpan = 20;
-
     public int Size { get; set; }
     public float LifeCycleSpan
     {

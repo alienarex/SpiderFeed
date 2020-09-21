@@ -51,3 +51,5 @@ Ljud:
 Importera ljudfiler => assigna "audio source" till gameObject.
 Fonter: 
 Importera assets från Unity: Honeti- l18N
+
+assets Fonts: honeti från assets store

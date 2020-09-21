@@ -9,30 +9,30 @@ public class SpiderController : MonoBehaviour
 {
 
     [SerializeField] private float _movementSpeed;
-
+    public GameObject bloodSplatterPrefab;
     private Vector3 _moveDirection = Vector3.zero;
     private float _rotationSpeed = 150.0f;
     private Animator _animator;
     private CharacterController _controller;
     private bool _canMove;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public Text countEatenHumans;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _movementSpeed = 7;
         _controller = GetComponent<CharacterController>();
+        // call the function in start to configure audio
+        PlaySoundInterval(1.5f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         GetRemainingTime();
         if (!TimeEnded)
         {
@@ -42,6 +42,8 @@ public class SpiderController : MonoBehaviour
             {
                 // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
                 _animator.SetTrigger("attack");
+                var test = _animator.GetCurrentAnimatorStateInfo(0).IsName("attack");
+
             }
 
             float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
@@ -70,18 +72,21 @@ public class SpiderController : MonoBehaviour
         }
     }
 
+    void PlaySoundInterval(float audioDuration, float audioStartPoint = 0.01f)
+    {
+        // ref: https://forum.unity.com/threads/soundchannel-cpp.371808/#post-2411098
 
+        audioSource.time = Mathf.Min(audioDuration, audioSource.clip.length - audioStartPoint);
+    }
 
     IEnumerator LoadScene()
     {
         //animator = player.GetComponent<Animator>();
         _animator.SetTrigger("die");
         //player.GetComponent<SpiderController>().CanMove = false;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
     }
-
-
 
     /// <summary>
     /// Removes the object when collided and attacked
@@ -92,10 +97,15 @@ public class SpiderController : MonoBehaviour
         int secondsToAdd = 10;
         if (colliderObject.gameObject.tag == "Human")
         {
-            audioSource.Play();
+            //if (_animator.GetBool("attack"))
+            //{
+
             _animator.SetTrigger("attack");
+            this.audioSource.Play();
+
             colliderObject.gameObject.SetActive(false);
             IncreaseCountdown(secondsToAdd);
+            //}
         }
     }
 }

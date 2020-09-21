@@ -42,7 +42,7 @@ public class SpiderController : MonoBehaviour
             {
                 // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
                 _animator.SetTrigger("attack");
-                var test = _animator.GetCurrentAnimatorStateInfo(0).IsName("attack");
+                var test = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
 
             }
 
@@ -70,6 +70,8 @@ public class SpiderController : MonoBehaviour
         {
             StartCoroutine("LoadScene");
         }
+        var testar = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+
     }
 
     void PlaySoundInterval(float audioDuration, float audioStartPoint = 0.01f)
@@ -95,6 +97,8 @@ public class SpiderController : MonoBehaviour
     void OnTriggerEnter(Collider colliderObject)
     {
         int secondsToAdd = 10;
+        var testar = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+
         if (colliderObject.gameObject.tag == "Human")
         {
             //if (_animator.GetBool("attack"))

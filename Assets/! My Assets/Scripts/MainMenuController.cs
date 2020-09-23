@@ -33,17 +33,17 @@ public class MainMenuController : MonoBehaviour
         switch (submit)
         {
             case "MenuEasy":
-                PlayerPrefs.SetInt("initialGamingTime", 3);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 3));
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuMedium":
-                PlayerPrefs.SetInt("initialGamingTime", 2);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 2));
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuHard":
-                PlayerPrefs.SetInt("initialGamingTime", 1);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 1));
                 SceneManager.LoadScene("Stage1");
                 break;
             case "Quit":

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class Human : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class Human : MonoBehaviour
 
     void SetInactiveHuman()
     {
+        IncreaseCountdown(TimeValue);
         this.gameObject.SetActive(false);
     }
 

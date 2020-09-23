@@ -29,7 +29,8 @@ public class SpiderController : MonoBehaviour
     void Update()
     {
         GetRemainingTime();
-        if (!TimeEnded)
+        //if (!TimeEnded)
+        if (true)
         {
             //countText.text = CountdownText;
 
@@ -39,23 +40,25 @@ public class SpiderController : MonoBehaviour
                 _animator.SetTrigger("attack");
 
             }
+            else
+            {
+                float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
+                rotation *= Time.deltaTime;
+                transform.Rotate(0, rotation, 0);
+                _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                _moveDirection *= _movementSpeed;
 
-            float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
-            rotation *= Time.deltaTime;
-            transform.Rotate(0, rotation, 0);
-            _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            _moveDirection *= _movementSpeed;
+                // Triggers animation when object moves
+                _animator.SetFloat("walking", _moveDirection.magnitude);
 
-            // Triggers animation when object moves
-            _animator.SetFloat("walking", _moveDirection.magnitude);
+                _controller.Move(_moveDirection * Time.deltaTime);
 
-            _controller.Move(_moveDirection * Time.deltaTime);
-
+            }
         }
-        else if (TimeEnded)
-        {
-            StartCoroutine("LoadScene");
-        }
+        //else if (TimeEnded)
+        //{
+        //    StartCoroutine("LoadScene");
+        //}
     }
 
     IEnumerator LoadScene()

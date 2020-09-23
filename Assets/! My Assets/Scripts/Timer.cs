@@ -12,7 +12,8 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        timeRemaining = PlayerPrefs.GetFloat("initialGamingTime");
+        //timeRemaining = PlayerPrefs.GetFloat("initialGamingTime");
+        timeRemaining = 180;//testning
 
         // Starts the timer automatically
         timerIsRunning = true;

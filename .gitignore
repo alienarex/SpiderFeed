@@ -1,9 +1,18 @@
 Builds/
 Temp/
 Library/
+<<<<<<< HEAD
+=======
 obj/
 packages.config
 Packages/
 Logs/
+Assembly-*
+UnityEditor.UI.csproj
+UnityEngine.UI.csproj
+ProjectSettings/
+SpiderFeed.sln
 .vs/
+>>>>>>> fromCommit_1b774dc6972066629bef0b1e8c8adaa12da54a3a
+.vgit stat	s/
 ~*

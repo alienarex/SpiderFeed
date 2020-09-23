@@ -15,7 +15,7 @@ public class SpiderAnimationAttack : StateMachineBehaviour
         animator.gameObject.GetComponent<BoxCollider>().isTrigger = true;
 
     }
-    
+
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {// Ref: https://answers.unity.com/questions/728518/making-my-player-attack-and-do-damage-when-button.html
@@ -31,7 +31,7 @@ public class SpiderAnimationAttack : StateMachineBehaviour
             {
                 PlaySoundWithInterval(1.5f, 0.5f);
 
-                IncreaseCountdown(hit.transform.gameObject.GetComponent<Human>().TimeValue);
+                //IncreaseCountdown(hit.transform.gameObject.GetComponent<Human>().TimeValue);
                 hit.transform.gameObject.SendMessage("SetInactiveHuman");
             }
         }

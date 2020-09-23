@@ -4,7 +4,7 @@ using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class StageController : MonoBehaviour
 {
-    public Text countText;
+    //public Text countText;
     private bool _isPaused;
     public GameObject pauseMenu;
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class StageController : MonoBehaviour
         SetCountdownClock(initMinutes);
         //SetCountdownClock(0);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
-        countText.text = CountdownText;
+        //countText.text = CountdownText;
     }
 
     // Update is called once per frame

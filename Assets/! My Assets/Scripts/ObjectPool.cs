@@ -24,11 +24,11 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < amountMaleAndFemaleToPool; i++)
         {
             tmp = Instantiate(objectToPoolFemale);
-            tmp.AddComponent<Human>();
+            //tmp.AddComponent<Human>();
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
 
-            tmp.AddComponent<Human>();
+            //tmp.AddComponent<Human>();
             tmp = Instantiate(objectToPoolMale);
 
             tmp.SetActive(false);

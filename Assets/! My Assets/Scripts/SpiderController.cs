@@ -14,9 +14,7 @@ public class SpiderController : MonoBehaviour
     private float _rotationSpeed = 150.0f;
     private Animator _animator;
     private CharacterController _controller;
-    private bool _canMove;
 
-    public AudioSource audioSource;
     public Text countEatenHumans;
 
 
@@ -24,17 +22,15 @@ public class SpiderController : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _movementSpeed = 7;
         _controller = GetComponent<CharacterController>();
-        // call the function in start to configure audio
-        PlaySoundInterval(1.5f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
         GetRemainingTime();
-        if (!TimeEnded)
+        //if (!TimeEnded)
+        if (true)
         {
             //countText.text = CountdownText;
 
@@ -42,41 +38,27 @@ public class SpiderController : MonoBehaviour
             {
                 // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
                 _animator.SetTrigger("attack");
-                var test = _animator.GetCurrentAnimatorStateInfo(0).IsName("attack");
 
-            }
-
-            float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
-            rotation *= Time.deltaTime;
-            transform.Rotate(0, rotation, 0);
-            _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            _moveDirection *= _movementSpeed;
-
-            // Triggers animation when object moves
-            //if (moveDirection != Vector3.zero)
-            if (_moveDirection.magnitude > 0.1)
-            {
-                _animator.SetBool("walking", true);
             }
             else
             {
-                _animator.SetBool("walking", false);
+                float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
+                rotation *= Time.deltaTime;
+                transform.Rotate(0, rotation, 0);
+                _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                _moveDirection *= _movementSpeed;
+
+                // Triggers animation when object moves
+                _animator.SetFloat("walking", _moveDirection.magnitude);
+
+                _controller.Move(_moveDirection * Time.deltaTime);
+
             }
-
-            _controller.Move(_moveDirection * Time.deltaTime);
-
         }
-        else if (TimeEnded)
-        {
-            StartCoroutine("LoadScene");
-        }
-    }
-
-    void PlaySoundInterval(float audioDuration, float audioStartPoint = 0.01f)
-    {
-        // ref: https://forum.unity.com/threads/soundchannel-cpp.371808/#post-2411098
-
-        audioSource.time = Mathf.Min(audioDuration, audioSource.clip.length - audioStartPoint);
+        //else if (TimeEnded)
+        //{
+        //    StartCoroutine("LoadScene");
+        //}
     }
 
     IEnumerator LoadScene()
@@ -95,17 +77,14 @@ public class SpiderController : MonoBehaviour
     void OnTriggerEnter(Collider colliderObject)
     {
         int secondsToAdd = 10;
-        if (colliderObject.gameObject.tag == "Human")
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
-            //if (_animator.GetBool("attack"))
-            //{
 
-            _animator.SetTrigger("attack");
-            this.audioSource.Play();
-
-            colliderObject.gameObject.SetActive(false);
-            IncreaseCountdown(secondsToAdd);
-            //}
+            if (colliderObject.gameObject.tag == "Human")
+            {
+                colliderObject.gameObject.SetActive(false);
+                IncreaseCountdown(secondsToAdd);
+            }
         }
     }
 }

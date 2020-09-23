@@ -13,11 +13,12 @@ public class SpiderAnimationAttack : StateMachineBehaviour
     {
         animator.gameObject.GetComponent<BoxCollider>().enabled = true;
         animator.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-    }
 
+    }
+    
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
+    {// Ref: https://answers.unity.com/questions/728518/making-my-player-attack-and-do-damage-when-button.html
         // Here's where I put code that will be exevuted during the animatiobn
         int hitRange = 20;
         RaycastHit hit;

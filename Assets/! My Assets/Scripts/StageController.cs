@@ -4,42 +4,34 @@ using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class StageController : MonoBehaviour
 {
-    //public Text countText;
     private bool _isPaused;
     public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
-        int initMinutes = PlayerPrefs.GetInt("initialGamingTime");
-        SetCountdownClock(initMinutes);
-        //SetCountdownClock(0);// for testing. Remove in build
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
-        //countText.text = CountdownText;
+        _isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         PauseOrResumeGame();
-        if (!TimeEnded)
-        {
-            countText.text = CountdownText;
-        }
     }
 
     void PauseOrResumeGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10))
         {
-            if (_isPaused)
+            if (!_isPaused)
             {
                 pauseMenu.SetActive(true);
-                ResumeGame();
+                PauseGame();
             }
             else
             {
                 pauseMenu.SetActive(false);
-                PauseGame();
+                ResumeGame();
             }
         }
     }

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     // Ref: https://www.instructables.com/id/How-to-make-a-main-menu-in-Unity/
 
     //public static int _setInitialMinutesToGame;
     //public Transform transformMainMenu;
 
-    public static MainMenuController mainMenu;
+    public static MenuController mainMenu;
 
     // Start is called before the first frame update
     void Start()

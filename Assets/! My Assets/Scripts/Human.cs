@@ -4,11 +4,11 @@ using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class Human : MonoBehaviour
 {
-    private int _timeValue = 10;
+    private float _timeValue = 10;
     private float _lifeTimeSpan = 20;
 
     public int Size { get; set; }
-    public int TimeValue { get; private set; }
+    public float TimeValue { get; private set; }
     public float LifeCycleSpan
     {
         get => _lifeTimeSpan;
@@ -35,7 +35,8 @@ public class Human : MonoBehaviour
 
     void SetInactiveHuman()
     {
-        IncreaseCountdown(TimeValue);
+        GameObject.Find("WrapperStage1").GetComponent<Timer>().IncreaseTimer(TimeValue);
+        //transform.GetComponentInParent<Timer>().IncreaseTimer(TimeValue);
         this.gameObject.SetActive(false);
     }
 

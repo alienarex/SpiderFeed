@@ -51,13 +51,4 @@ public class SpiderController : MonoBehaviour
 
         }
     }
-
-    IEnumerator LoadScene()
-    {
-        //animator = player.GetComponent<Animator>();
-        _animator.SetTrigger("die");
-        //player.GetComponent<SpiderController>().CanMove = false;
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
-    }
 }

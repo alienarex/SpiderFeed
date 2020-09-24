@@ -1,52 +1,50 @@
-﻿using UnityEngine;
+﻿using Assets.__My_Assets.Scripts;
+using UnityEngine;
 using UnityEngine.UI;
-using static Assets.__My_Assets.Scripts.CountdownControl;
+using static Assets.__My_Assets.Scripts.StringHelpers;
 
 public class StageController : MonoBehaviour
 {
-    public Text countText;
     private bool _isPaused;
     public GameObject pauseMenu;
+    public Text timeText;
+
     // Start is called before the first frame update
     void Start()
     {
-        int initMinutes = PlayerPrefs.GetInt("initialGamingTime");
-        SetCountdownClock(initMinutes);
-        //SetCountdownClock(0);// for testing. Remove in build
+        Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
-        countText.text = CountdownText;
+        _isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         PauseOrResumeGame();
-        if (!TimeEnded)
-        {
-            countText.text = CountdownText;
-        }
+        Timer.Instance.UpdateTimer();
+        timeText.text = Timer.Instance.TimeRemaining.ConvertTimeToString();
     }
 
     void PauseOrResumeGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10))
         {
-            if (_isPaused)
+            if (!_isPaused)
             {
                 pauseMenu.SetActive(true);
-                ResumeGame();
+                PauseGame();
             }
             else
             {
                 pauseMenu.SetActive(false);
-                PauseGame();
+                ResumeGame();
             }
         }
     }
 
     /// <summary>
     /// Sets timeScale to zero, pausing the game
-    /// </summary>
+    /// </summary>d 
     void PauseGame()
     {
         Time.timeScale = 0;

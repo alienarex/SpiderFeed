@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     // Ref: https://www.instructables.com/id/How-to-make-a-main-menu-in-Unity/
 
     //public static int _setInitialMinutesToGame;
     //public Transform transformMainMenu;
 
-    public static MainMenuController mainMenu;
+    public static MenuController mainMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +33,17 @@ public class MainMenuController : MonoBehaviour
         switch (submit)
         {
             case "MenuEasy":
-                PlayerPrefs.SetInt("initialGamingTime", 3);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 3));
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuMedium":
-                PlayerPrefs.SetInt("initialGamingTime", 2);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 2));
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuHard":
-                PlayerPrefs.SetInt("initialGamingTime", 1);
+                PlayerPrefs.SetFloat("initialGamingTime", (60 * 1));
                 SceneManager.LoadScene("Stage1");
                 break;
             case "Quit":

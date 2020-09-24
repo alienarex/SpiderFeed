@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class SavePlayerScoreController : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class SavePlayerScoreController : MonoBehaviour
     {
         totalTimeText = GameObject.Find("TotalplayedTime").GetComponent<TextMesh>();
 
-        totalTimeText.text = $"Total time: {GetTotalTimePlayed}";
+        //totalTimeText.text = $"Total time: {GetTotalTimePlayed}";
     }
 
     IEnumerator LoadScene()
@@ -39,7 +38,8 @@ public class SavePlayerScoreController : MonoBehaviour
                 {
                     playerName = inputName,
                 };
-                player.gameResults.Add(new GameResult { totalTime = testToSortListOnTimerTicks });
+                // TODO get total played time 
+                player.gameResults.Add(new GameResult { totalTime = 0 });
                 Player.current = player;
                 SaveLoad.Save();
                 StartCoroutine("LoadScene");

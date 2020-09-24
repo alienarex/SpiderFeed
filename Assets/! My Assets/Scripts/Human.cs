@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using Assets.__My_Assets.Scripts;
+using System.Collections;
 using UnityEngine;
 
 public class Human : MonoBehaviour
 {
+    private float _timeValue = 10;
     private float _lifeTimeSpan = 20;
+
     public int Size { get; set; }
+    public float TimeValue { get; private set; }
     public float LifeCycleSpan
     {
         get => _lifeTimeSpan;
@@ -16,6 +20,7 @@ public class Human : MonoBehaviour
             }
         }
     }
+
     // Ref: https://forum.unity.com/threads/setting-inactive-after-some-seconds-script-only-working-once.488975/
     void OnEnable()
     {
@@ -27,10 +32,21 @@ public class Human : MonoBehaviour
         yield return new WaitForSeconds(LifeCycleSpan);
         this.gameObject.SetActive(false);
     }
+
+    /// <summary>
+    /// Sets the game object human as inactivated in hirierachy
+    /// </summary>
+    void SetInactiveHuman()
+    {
+        Timer.Instance.AddSecondsToTimer(TimeValue);
+        this.gameObject.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         LifeCycleSpan = _lifeTimeSpan;
+        TimeValue = _timeValue;
     }
 
     // Update is called once per frame

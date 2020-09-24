@@ -14,7 +14,7 @@ public class AIController : MonoBehaviour
         targetPosition = new Vector3(Random.Range(-70.0f, 70.0f), 0.0f, Random.Range(-70.0f, 70.0f));
 
     }
-     
+
     private void FixedUpdate()
     {
         if (Vector3.Distance(targetPosition, this.transform.position) < 10)

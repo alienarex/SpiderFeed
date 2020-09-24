@@ -48,7 +48,7 @@ public class SavePlayerScoreController : MonoBehaviour
                 SceneManager.LoadScene("GameOverScene");
                 break;
             default:
-                throw new System.Exception("Someting went wrong when saving, try again");
+                throw new System.Exception("Someting went terrible wrong when saving, try again");
         }
 
     }

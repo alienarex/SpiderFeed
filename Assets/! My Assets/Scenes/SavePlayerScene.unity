@@ -433,7 +433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.42, y: 1.8}
+  m_AnchoredPosition: {x: -1.41, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!102 &1087286691
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 1276423824}
   - component: {fileID: 1276423823}
   m_Layer: 5
-  m_Name: SaveResult
+  m_Name: Save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,8 +1072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3cb157c32eca34e8bc14040a92587b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  totalTimeText: {fileID: 0}
+  inputField: {fileID: 1560523327}
+  totalTimeText: {fileID: 1087286691}
 --- !u!102 &1539322729
 TextMesh:
   serializedVersion: 3
@@ -1169,7 +1169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1552085398
 Transform:
   m_ObjectHideFlags: 0

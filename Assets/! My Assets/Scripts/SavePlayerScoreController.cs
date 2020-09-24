@@ -12,9 +12,7 @@ public class SavePlayerScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalTimeText = GameObject.Find("TotalplayedTime").GetComponent<TextMesh>();
-
-        //totalTimeText.text = $"Total time: {GetTotalTimePlayed}";
+        totalTimeText.text = $" Time: {Timer.Instance.TotalTime.ConvertTimeToString()}";
     }
 
     IEnumerator LoadScene()
@@ -33,20 +31,20 @@ public class SavePlayerScoreController : MonoBehaviour
 
         switch (submit)
         {
-            case "SaveResult":
+            case "Save":
                 Player player = new Player
                 {
                     playerName = inputName,
                 };
                 // TODO get total played time 
-                player.gameResults.Add(new GameResult { totalTime = 0 });
+                player.gameResults.Add(new GameResult { totalTime = Timer.Instance.TotalTime });
                 Player.current = player;
                 SaveLoad.Save();
                 StartCoroutine("LoadScene");
                 SaveLoad.Load();
                 // Save result with PlayerScore class
                 break;
-            case "DoNotSave":
+            case "Cancel":
                 SceneManager.LoadScene("GameOverScene");
                 break;
             default:

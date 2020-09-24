@@ -11,6 +11,9 @@ namespace Assets.__My_Assets.Scripts
         {
         }
         private static Timer instance = null;
+        /// <summary>
+        /// Available instance used to get values
+        /// </summary>
         public static Timer Instance
         {
             get
@@ -23,8 +26,19 @@ namespace Assets.__My_Assets.Scripts
             }
         }
 
+        /// <summary>
+        /// Current value on countdown
+        /// </summary>
         public float TimeRemaining { get; private set; }
+
+        /// <summary>
+        /// All time played
+        /// </summary>
         public float TotalTime { get; private set; }
+
+        /// <summary>
+        /// Has the time ran out?
+        /// </summary>
         public bool TimeEnded { get; private set; }
 
         bool timerIsRunning;

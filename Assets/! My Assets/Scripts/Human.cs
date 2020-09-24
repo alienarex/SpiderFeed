@@ -27,6 +27,10 @@ public class Human : MonoBehaviour
         StartCoroutine(Hide());
     }
 
+    /// <summary>
+    /// Corountine to inactivate human in hirachey after set life cykle value
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Hide()
     {
         yield return new WaitForSeconds(LifeCycleSpan);
@@ -34,7 +38,7 @@ public class Human : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the game object human as inactivated in hirierachy
+    /// Sets the game object human as inactivated in hirierachy if attacked
     /// </summary>
     void SetInactiveHuman()
     {

@@ -14,8 +14,8 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
-        Timer.Instance.AddSecondsToTimer(5f);
+        Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
+        //Timer.Instance.AddSecondsToTimer(5f); // test
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
         _isPaused = false;
     }
@@ -31,16 +31,21 @@ public class StageController : MonoBehaviour
             StartCoroutine(LoadScene());
         }
     }
+
+    /// <summary>
+    /// Corounatine to wait and then load scene
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LoadScene()
     {
         GameObject.Find("Spider").GetComponent<Animator>().SetTrigger("die");
-        //animator = player.GetComponent<Animator>();
-        //player.GetComponent<SpiderController>().CanMove = false;
         yield return new WaitForSeconds(1);
-        SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
+        SceneManager.LoadSceneAsync("SavePlayerScene");
     }
 
-
+    /// <summary>
+    /// Check if the pause keys been pushen and game is paused
+    /// </summary>
     void PauseOrResumeGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10))
@@ -76,7 +81,9 @@ public class StageController : MonoBehaviour
         _isPaused = false;
     }
 
-
+    /// <summary>
+    /// Set human active and place it in a random place on scene
+    /// </summary>
     public void Generate()
     {
         GameObject human = ObjectPool.sharedInstance.GetPooledObjects();

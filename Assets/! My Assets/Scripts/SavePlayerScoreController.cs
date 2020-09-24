@@ -15,6 +15,10 @@ public class SavePlayerScoreController : MonoBehaviour
         totalTimeText.text = $" Time: {Timer.Instance.TotalTime.ConvertTimeToString()}";
     }
 
+    /// <summary>
+    /// Corountine to wait and then launch game over scene
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LoadScene()
     {
         totalTimeText.fontSize = 40;
@@ -23,7 +27,9 @@ public class SavePlayerScoreController : MonoBehaviour
         SceneManager.LoadSceneAsync("GameOverScene"); // Can Async put gameover scene on top of current scenee?
     }
 
-
+    /// <summary>
+    /// Saves players info if saved is pushed else game over is launched without saving
+    /// </summary>
     private void OnMouseUp()
     {
         string submit = this.GetComponent<BoxCollider>().name;

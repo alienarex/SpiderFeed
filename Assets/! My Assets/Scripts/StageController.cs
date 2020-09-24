@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using Assets.__My_Assets.Scripts;
+using UnityEngine;
 using UnityEngine.UI;
-using static Assets.__My_Assets.Scripts.CountdownControl;
+using static Assets.__My_Assets.Scripts.StringHelpers;
 
 public class StageController : MonoBehaviour
 {
     private bool _isPaused;
     public GameObject pauseMenu;
+    public Text timeText;
+
     // Start is called before the first frame update
     void Start()
     {
+        Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
         _isPaused = false;
     }
@@ -17,6 +21,8 @@ public class StageController : MonoBehaviour
     void Update()
     {
         PauseOrResumeGame();
+        Timer.Instance.UpdateTimer();
+        timeText.text = Timer.Instance.TimeRemaining.ConvertTimeToString();
     }
 
     void PauseOrResumeGame()

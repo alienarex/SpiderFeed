@@ -1,7 +1,4 @@
-﻿using Assets.__My_Assets.Scripts;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SpiderController : MonoBehaviour
@@ -15,15 +12,12 @@ public class SpiderController : MonoBehaviour
     private CharacterController _controller;
 
     public Text countEatenHumans;
-    bool timerIsRunning;
-
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _controller = GetComponent<CharacterController>();
-        timerIsRunning = true;
     }
 
     // Update is called once per frame
@@ -33,8 +27,6 @@ public class SpiderController : MonoBehaviour
         {
             // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
             _animator.SetTrigger("attack");
-            var test = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-
         }
         else
         {

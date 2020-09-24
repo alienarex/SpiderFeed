@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.__My_Assets.Scripts;
+using System.Collections;
 using UnityEngine;
-using static Assets.__My_Assets.Scripts.CountdownControl;
 
 public class Human : MonoBehaviour
 {
@@ -33,10 +33,12 @@ public class Human : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Sets the game object human as inactivated in hirierachy
+    /// </summary>
     void SetInactiveHuman()
     {
-        GameObject.Find("WrapperStage1").GetComponent<Timer>().IncreaseTimer(TimeValue);
-        //transform.GetComponentInParent<Timer>().IncreaseTimer(TimeValue);
+        Timer.Instance.AddSecondsToTimer(TimeValue);
         this.gameObject.SetActive(false);
     }
 

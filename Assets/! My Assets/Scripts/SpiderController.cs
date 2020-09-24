@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Assets.__My_Assets.Scripts.CountdownControl;
-
 
 public class SpiderController : MonoBehaviour
 {
@@ -28,38 +26,27 @@ public class SpiderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetRemainingTime();
-        //if (!TimeEnded)
-        if (true)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //countText.text = CountdownText;
+            // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
+            _animator.SetTrigger("attack");
+            var test = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                // https://answers.unity.com/questions/1362883/how-to-make-an-animation-play-on-keypress-unity-ga.html
-                _animator.SetTrigger("attack");
-                var test = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-
-            }
-            else
-            {
-                float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
-                rotation *= Time.deltaTime;
-                transform.Rotate(0, rotation, 0);
-                _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                _moveDirection *= _movementSpeed;
-
-                // Triggers animation when object moves
-                _animator.SetFloat("walking", _moveDirection.magnitude);
-
-                _controller.Move(_moveDirection * Time.deltaTime);
-
-            }
         }
-        //else if (TimeEnded)
-        //{
-        //    StartCoroutine("LoadScene");
-        //}
+        else
+        {
+            float rotation = Input.GetAxis("Horizontal") * _rotationSpeed;
+            rotation *= Time.deltaTime;
+            transform.Rotate(0, rotation, 0);
+            _moveDirection = transform.TransformDirection(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            _moveDirection *= _movementSpeed;
+
+            // Triggers animation when object moves
+            _animator.SetFloat("walking", _moveDirection.magnitude);
+
+            _controller.Move(_moveDirection * Time.deltaTime);
+
+        }
     }
 
     IEnumerator LoadScene()
@@ -77,14 +64,12 @@ public class SpiderController : MonoBehaviour
     /// <param name="colliderObject"></param>
     void OnTriggerEnter(Collider colliderObject)
     {
-        int secondsToAdd = 10;
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
 
             if (colliderObject.gameObject.tag == "Human")
             {
                 colliderObject.gameObject.SetActive(false);
-                IncreaseCountdown(secondsToAdd);
             }
         }
     }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static Assets.__My_Assets.Scripts.CountdownControl;
+﻿using UnityEngine;
 
 public class SpiderAnimationAttack : StateMachineBehaviour
 {

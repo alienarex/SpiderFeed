@@ -44,7 +44,7 @@ public class StageController : MonoBehaviour
 
     /// <summary>
     /// Sets timeScale to zero, pausing the game
-    /// </summary>
+    /// </summary>d 
     void PauseGame()
     {
         Time.timeScale = 0;

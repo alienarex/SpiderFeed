@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.__My_Assets.Scripts;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class SpiderController : MonoBehaviour
     private CharacterController _controller;
 
     public Text countEatenHumans;
+    bool timerIsRunning;
 
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class SpiderController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _controller = GetComponent<CharacterController>();
+        timerIsRunning = true;
     }
 
     // Update is called once per frame
@@ -56,21 +59,5 @@ public class SpiderController : MonoBehaviour
         //player.GetComponent<SpiderController>().CanMove = false;
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
-    }
-
-    /// <summary>
-    /// Removes the object when collided and attacked
-    /// </summary>
-    /// <param name="colliderObject"></param>
-    void OnTriggerEnter(Collider colliderObject)
-    {
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("attack"))
-        {
-
-            if (colliderObject.gameObject.tag == "Human")
-            {
-                colliderObject.gameObject.SetActive(false);
-            }
-        }
     }
 }

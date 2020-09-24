@@ -5,6 +5,8 @@ namespace Assets.__My_Assets.Scripts
     public sealed class Timer
     {
         // REf: https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
+        // Ref: https://www.c-sharpcorner.com/UploadFile/8911c4/singleton-design-pattern-in-C-Sharp/
+
         private Timer()
         {
         }
@@ -23,6 +25,7 @@ namespace Assets.__My_Assets.Scripts
 
         public float TimeRemaining { get; private set; }
         public float TotalTime { get; private set; }
+        public bool TimeEnded { get; private set; }
 
         bool timerIsRunning;
 
@@ -42,6 +45,7 @@ namespace Assets.__My_Assets.Scripts
                 {
                     TimeRemaining = 0;
                     timerIsRunning = false;
+                    TimeEnded = true;
                 }
             }
         }

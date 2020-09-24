@@ -1,5 +1,7 @@
 ﻿using Assets.__My_Assets.Scripts;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Assets.__My_Assets.Scripts.StringHelpers;
 
@@ -12,7 +14,8 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
+        //Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
+        Timer.Instance.AddSecondsToTimer(5f);
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
         _isPaused = false;
     }
@@ -23,7 +26,20 @@ public class StageController : MonoBehaviour
         PauseOrResumeGame();
         Timer.Instance.UpdateTimer();
         timeText.text = Timer.Instance.TimeRemaining.ConvertTimeToString();
+        if (Timer.Instance.TimeEnded)
+        {
+            StartCoroutine(LoadScene());
+        }
     }
+    IEnumerator LoadScene()
+    {
+        GameObject.Find("Spider").GetComponent<Animator>().SetTrigger("die");
+        //animator = player.GetComponent<Animator>();
+        //player.GetComponent<SpiderController>().CanMove = false;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync("SavePlayerScene"); // Can Async put gameover scene on top of current scenee?
+    }
+
 
     void PauseOrResumeGame()
     {

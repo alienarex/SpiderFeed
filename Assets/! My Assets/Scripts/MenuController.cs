@@ -23,32 +23,35 @@ public class MenuController : MonoBehaviour
 
     }
 
+    void LoadGameScene(float initialGamingTimeInSeconds)
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetFloat("initialGamingTime", initialGamingTimeInSeconds);
+        SceneManager.LoadScene("Stage1");
+
+    }
+
     /// <summary>
     /// Manange the submission from main menu options  
     /// </summary>
     void OnMouseUp()
     {
         string submit = this.GetComponent<BoxCollider>().name;
+        float initialGamingTimeInSeconds;
 
         switch (submit)
         {
             case "MenuEasy":
-                PlayerPrefs.SetFloat("initialGamingTime", (60 * 3));
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-                SceneManager.LoadScene("Stage1");
-
+                initialGamingTimeInSeconds = 180;
+                LoadGameScene(initialGamingTimeInSeconds);
                 break;
             case "MenuMedium":
-                PlayerPrefs.SetFloat("initialGamingTime", (60 * 2));
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-                SceneManager.LoadScene("Stage1");
-
+                initialGamingTimeInSeconds = 120;
+                LoadGameScene(initialGamingTimeInSeconds);
                 break;
             case "MenuHard":
-                PlayerPrefs.SetFloat("initialGamingTime", (60 * 1));
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-
-                SceneManager.LoadScene("Stage1");
+                initialGamingTimeInSeconds = 60;
+                LoadGameScene(initialGamingTimeInSeconds);
                 break;
             case "Quit":
                 SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
@@ -59,6 +62,10 @@ public class MenuController : MonoBehaviour
                 SceneManager.LoadScene("ScoreboardScene");
                 break;
             case "MainMenu":
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene("MainMenuScene");
+                break;
+            case "Cancel":
                 SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("MainMenuScene");
                 break;

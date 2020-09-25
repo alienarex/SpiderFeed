@@ -55,12 +55,11 @@ public class StageController : MonoBehaviour
         GameObject.Find("Spider").GetComponent<Animator>().SetTrigger("die");
         yield return new WaitForSeconds(1);
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-
         SceneManager.LoadSceneAsync("SavePlayerScene");
     }
 
     /// <summary>
-    /// Check if the pause keys been pushen and game is paused
+    /// Check if the pause keys been pushed and game is paused
     /// </summary>
     void PauseOrActivateGame()
     {

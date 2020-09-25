@@ -23,7 +23,8 @@ public class SavePlayerScoreController : MonoBehaviour
     {
         totalTimeText.fontSize = 40;
         totalTimeText.text = $"Saved successfully!";
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
         SceneManager.LoadSceneAsync("GameOverScene"); // Can Async put gameover scene on top of current scenee?
     }
 
@@ -47,10 +48,11 @@ public class SavePlayerScoreController : MonoBehaviour
                 Player.current = player;
                 SaveLoad.Save();
                 StartCoroutine("LoadScene");
-                SaveLoad.Load();
+                //SaveLoad.Load();
                 // Save result with PlayerScore class
                 break;
             case "Cancel":
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("GameOverScene");
                 break;
             default:

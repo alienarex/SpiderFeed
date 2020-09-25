@@ -30,8 +30,8 @@ public class StageController : MonoBehaviour
     {
         Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
         //Timer.Instance.AddSecondsToTimer(5f); // test
+
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
-        //_isPaused = false;
     }
 
     // Update is called once per frame

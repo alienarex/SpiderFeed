@@ -14,7 +14,7 @@ public class StageController : MonoBehaviour
     private void Awake()
     {
         Timer.Instance.ResetTimer();
-        ResumeGame(); // sets the game to not paused and timescale to 1
+        ActivateGame(); // sets the game to not paused and timescale to 1
     }
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class StageController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PauseOrResumeGame();
+        PauseOrActivateGame();
         Timer.Instance.UpdateTimer();
         timeText.text = Timer.Instance.TimeRemaining.ConvertTimeToString();
         if (Timer.Instance.TimeEnded)
@@ -52,7 +52,7 @@ public class StageController : MonoBehaviour
     /// <summary>
     /// Check if the pause keys been pushen and game is paused
     /// </summary>
-    void PauseOrResumeGame()
+    void PauseOrActivateGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F10))
         {
@@ -64,7 +64,7 @@ public class StageController : MonoBehaviour
             else
             {
                 pauseMenu.SetActive(false);
-                ResumeGame();
+                ActivateGame();
             }
         }
     }
@@ -81,7 +81,7 @@ public class StageController : MonoBehaviour
     /// <summary>
     /// Sets timeScale to 1, resuming the game
     /// </summary>
-    void ResumeGame()
+    void ActivateGame()
     {
         Time.timeScale = 1;
         _isPaused = false;

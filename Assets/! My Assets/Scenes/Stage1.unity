@@ -439,7 +439,6 @@ GameObject:
   - component: {fileID: 43226170}
   - component: {fileID: 43226172}
   - component: {fileID: 43226171}
-  - component: {fileID: 43226173}
   m_Layer: 5
   m_Name: GameTimer
   m_TagString: Untagged
@@ -507,18 +506,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43226169}
   m_CullTransparentMesh: 0
---- !u!114 &43226173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43226169}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b308dcff7b0940c48ae33ff7df798158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &73869654
 PrefabInstance:
   m_ObjectHideFlags: 0

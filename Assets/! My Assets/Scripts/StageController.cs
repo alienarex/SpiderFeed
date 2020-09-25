@@ -46,6 +46,8 @@ public class StageController : MonoBehaviour
     {
         GameObject.Find("Spider").GetComponent<Animator>().SetTrigger("die");
         yield return new WaitForSeconds(1);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+
         SceneManager.LoadSceneAsync("SavePlayerScene");
     }
 

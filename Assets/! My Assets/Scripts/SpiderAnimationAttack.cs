@@ -8,8 +8,6 @@ public class SpiderAnimationAttack : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.GetComponent<BoxCollider>().enabled = true;
-        animator.gameObject.GetComponent<BoxCollider>().isTrigger = true;
 
     }
 
@@ -28,7 +26,6 @@ public class SpiderAnimationAttack : StateMachineBehaviour
             {
                 PlaySoundWithInterval(1.5f, 0.5f);
 
-                //IncreaseCountdown(hit.transform.gameObject.GetComponent<Human>().TimeValue);
                 hit.transform.gameObject.SendMessage("SetInactiveHuman");
             }
         }
@@ -52,8 +49,6 @@ public class SpiderAnimationAttack : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var testar = animator.gameObject.GetComponent<BoxCollider>().enabled = false;
-        animator.gameObject.GetComponent<BoxCollider>().isTrigger = false;
 
     }
 

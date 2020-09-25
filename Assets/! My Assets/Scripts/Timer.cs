@@ -80,6 +80,7 @@ namespace Assets.__My_Assets.Scripts
         public void ResetTimer()
         {
             TimeRemaining = 0;
+            TotalTime = 0;
         }
     }
 }

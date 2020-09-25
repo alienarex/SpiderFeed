@@ -73,5 +73,13 @@ namespace Assets.__My_Assets.Scripts
             TimeRemaining += seconds;
             timerIsRunning = true;
         }
+
+        /// <summary>
+        /// Reset timer by set TimeRemaining to 0
+        /// </summary>
+        public void ResetTimer()
+        {
+            TimeRemaining = 0;
+        }
     }
 }

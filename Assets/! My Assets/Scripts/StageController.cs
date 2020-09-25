@@ -11,13 +11,19 @@ public class StageController : MonoBehaviour
     public GameObject pauseMenu;
     public Text timeText;
 
+    private void Awake()
+    {
+        Timer.Instance.ResetTimer();
+        ResumeGame(); // sets the game to not paused and timescale to 1
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Timer.Instance.AddSecondsToTimer(PlayerPrefs.GetFloat("initialGamingTime"));
         //Timer.Instance.AddSecondsToTimer(5f); // test
         InvokeRepeating("Generate", 0.0f, 3f); // Generates the humans direcley on launch (0.0f) and every second (..,1f)
-        _isPaused = false;
+        //_isPaused = false;
     }
 
     // Update is called once per frame

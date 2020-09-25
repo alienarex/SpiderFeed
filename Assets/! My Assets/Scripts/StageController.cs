@@ -13,9 +13,17 @@ public class StageController : MonoBehaviour
 
     private void Awake()
     {
-        Timer.Instance.ResetTimer();
-        ActivateGame(); // sets the game to not paused and timescale to 1
+        ResetGame();
     }
+
+    void ResetGame()
+    {
+        _isPaused = false;
+        Time.timeScale = 1;
+        Timer.Instance.ResetTimer();
+
+    }
+
 
     // Start is called before the first frame update
     void Start()

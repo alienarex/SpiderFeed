@@ -34,25 +34,32 @@ public class MenuController : MonoBehaviour
         {
             case "MenuEasy":
                 PlayerPrefs.SetFloat("initialGamingTime", (60 * 3));
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuMedium":
                 PlayerPrefs.SetFloat("initialGamingTime", (60 * 2));
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("Stage1");
 
                 break;
             case "MenuHard":
                 PlayerPrefs.SetFloat("initialGamingTime", (60 * 1));
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+
                 SceneManager.LoadScene("Stage1");
                 break;
             case "Quit":
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 Application.Quit();
                 break;
             case "Scoreboard":
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("ScoreboardScene");
                 break;
             case "MainMenu":
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene("MainMenuScene");
                 break;
             default:
